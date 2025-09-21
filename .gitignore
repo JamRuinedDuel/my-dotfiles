@@ -1,0 +1,28 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Thumbnails
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
+*~
+
+# Stow-specific
+.stow-local-ignore
+.stow-global-ignore
+
+# IDE/editor configs (optional, if you don’t want them in repo)
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
