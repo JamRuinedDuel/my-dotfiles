@@ -26,3 +26,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Ignore tmux tpm files
+tmux/.config/tmux/plugins
