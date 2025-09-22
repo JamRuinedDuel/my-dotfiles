@@ -3,11 +3,16 @@ local config = wezterm.config_builder()
 
 -- Font Settings
 config.font = wezterm.font({
-  family = "MesloLGSDZ Nerd Font",
+  -- family = "D2CodingLigature Nerd Font",
+  -- family = "IosevkaTerm Nerd Font",
+  -- family = "JetBrainsMonoNL Nerd Font",
+  -- family = "MesloLGSDZ Nerd Font",
+  family = "Monoid Nerd Font",
+  -- family = "ZedMono Nerd Font",
   weight = "Regular",
   italic = false,
 })
-config.font_size = 16
+config.font_size = 14
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.text_background_opacity = 0.9
 
