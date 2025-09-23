@@ -8,16 +8,17 @@ config.font = wezterm.font({
   -- family = "FiraMono Nerd Font",
   -- family = "Hack Nerd Font",
   -- family = "IosevkaTerm Nerd Font",
+  family = "IosevkaTermSlab Nerd Font",
   -- family = "JetBrainsMonoNL Nerd Font",
   -- family = "MesloLGSDZ Nerd Font",
-  family = "Monoid Nerd Font",
+  -- family = "Monoid Nerd Font",
   -- family = "ShureTechMono Nerd Font",
   -- family = "Terminess Nerd Font",
   -- family = "ZedMono Nerd Font",
   weight = "Regular",
   italic = false,
 })
-config.font_size = 14
+config.font_size = 16
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.text_background_opacity = 1.0
 
