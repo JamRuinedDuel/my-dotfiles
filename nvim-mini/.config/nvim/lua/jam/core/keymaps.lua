@@ -8,10 +8,11 @@ keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 local toggleMiniFiles = function()
   if not MiniFiles.close() then
     -- open in current buffer's directory
-    MiniFiles.open(vim.api.nvim_buf_get_name(0))
+    MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+    MiniFiles.reveal_cwd()
   end
 end
-keymap.set("n", "<Leader>ee", toggleMiniFiles, { desc = "Open MiniFiles" })
+keymap.set("n", "<Leader>e", toggleMiniFiles, { desc = "Open MiniFiles" })
 
 -- Navigate buffers via <S-h> and <S-l>
 keymap.set("n", "<S-h>", ":bprevious<CR>", { desc = "Go to previous buffer" })
