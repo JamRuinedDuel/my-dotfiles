@@ -4,17 +4,22 @@ local config = wezterm.config_builder()
 -- Font Settings
 config.font = wezterm.font({
   -- family = "D2CodingLigature Nerd Font",
+  -- family = "EnvyCodeR Nerd Font",
+  -- family = "FiraMono Nerd Font",
+  -- family = "Hack Nerd Font",
   -- family = "IosevkaTerm Nerd Font",
   -- family = "JetBrainsMonoNL Nerd Font",
   -- family = "MesloLGSDZ Nerd Font",
   family = "Monoid Nerd Font",
+  -- family = "ShureTechMono Nerd Font",
+  -- family = "Terminess Nerd Font",
   -- family = "ZedMono Nerd Font",
   weight = "Regular",
   italic = false,
 })
 config.font_size = 14
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
-config.text_background_opacity = 0.9
+config.text_background_opacity = 1.0
 
 -- Color & Theme Settings
 config.colors = {
@@ -51,7 +56,7 @@ config.enable_tab_bar = false
 
 -- Window Settings
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.9
+config.window_background_opacity = 1.0
 config.macos_window_background_blur = 20
 
 -- Startup Settings
