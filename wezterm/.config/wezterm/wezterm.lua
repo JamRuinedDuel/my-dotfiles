@@ -5,10 +5,10 @@ local config = wezterm.config_builder()
 config.font = wezterm.font({
   -- family = "D2CodingLigature Nerd Font",
   -- family = "EnvyCodeR Nerd Font",
-  -- family = "FiraMono Nerd Font",
+  family = "FiraMono Nerd Font",
   -- family = "Hack Nerd Font",
   -- family = "IosevkaTerm Nerd Font",
-  family = "IosevkaTermSlab Nerd Font",
+  -- family = "IosevkaTermSlab Nerd Font",
   -- family = "JetBrainsMonoNL Nerd Font",
   -- family = "MesloLGSDZ Nerd Font",
   -- family = "Monoid Nerd Font",
@@ -18,7 +18,7 @@ config.font = wezterm.font({
   weight = "Regular",
   italic = false,
 })
-config.font_size = 16
+config.font_size = 18
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.text_background_opacity = 1.0
 
