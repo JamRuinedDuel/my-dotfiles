@@ -18,7 +18,7 @@ config.font = wezterm.font({
   weight = "Regular",
   italic = false,
 })
-config.font_size = 18
+config.font_size = 16
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.text_background_opacity = 1.0
 
@@ -65,7 +65,7 @@ config.default_prog = {
   "/bin/zsh",
   "-l",
   "-c",
-  "tmux attach || tmux new -s Session",
+  "tmux attach || tmux new -s Terminal",
 }
 
 return config
