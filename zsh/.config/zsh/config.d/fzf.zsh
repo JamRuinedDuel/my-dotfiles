@@ -15,6 +15,10 @@ if ! (brew list --formula | grep -q "fzf"); then
   brew install fzf
 fi
 
+if ! [ -f ~/fzf-git.sh/fzf-git.sh ]; then
+  git clone https://github.com/junegunn/fzf-git.sh.git ~
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Use fd instead of fzf for faster searching
@@ -48,12 +52,6 @@ _fzf_comprun() {
     *)            fzf --preview "--preview 'bat -n --color=always --line-range :500 {}'" "$@" ;;
   esac
 }
-
-if ! [ -f ~/fzf-git.sh/fzf-git.sh ]; then
-  git clone https://github.com/junegunn/fzf-git.sh.git ~
-fi
-
-source ~/fzf-git.sh/fzf-git.sh
 
 if command -v bat &> /dev/null; then
   export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
