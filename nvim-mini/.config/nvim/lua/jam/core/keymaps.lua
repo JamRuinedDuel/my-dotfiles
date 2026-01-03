@@ -20,6 +20,5 @@ keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Go to next buffer" })
 
 -- Hide search highlighting
 keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})
-keymap.set("i", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})
 keymap.set("c", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})
 keymap.set("x", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})

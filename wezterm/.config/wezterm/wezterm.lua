@@ -57,7 +57,7 @@ config.enable_tab_bar = false
 
 -- Window Settings
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 1.0
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 
 -- Startup Settings
