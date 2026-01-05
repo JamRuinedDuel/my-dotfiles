@@ -15,8 +15,9 @@ if ! (brew list --formula | grep -q "fzf"); then
   brew install fzf
 fi
 
-if ! [ -f ~/fzf-git.sh/fzf-git.sh ]; then
-  git clone https://github.com/junegunn/fzf-git.sh.git ~
+if ! [ -d ~/fzf-git.sh ]; then
+  mkdir ~/fzf-git.sh
+  git clone https://github.com/junegunn/fzf-git.sh.git ~/fzf-git.sh
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
