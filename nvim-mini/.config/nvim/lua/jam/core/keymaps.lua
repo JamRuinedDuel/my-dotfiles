@@ -13,6 +13,7 @@ local toggleMiniFiles = function()
   end
 end
 keymap.set("n", "<Leader>e", toggleMiniFiles, { desc = "Open MiniFiles" })
+keymap.set("n", "<Leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
 
 -- Navigate buffers via <S-h> and <S-l>
 keymap.set("n", "<S-h>", ":bprevious<CR>", { desc = "Go to previous buffer" })
@@ -20,5 +21,3 @@ keymap.set("n", "<S-l>", ":bnext<CR>", { desc = "Go to next buffer" })
 
 -- Hide search highlighting
 keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})
-keymap.set("c", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})
-keymap.set("x", "<Esc><Esc>", ":nohlsearch<CR>", { desc = "Clear search highlighting "})
