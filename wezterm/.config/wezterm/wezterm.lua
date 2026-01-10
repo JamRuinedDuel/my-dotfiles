@@ -65,7 +65,7 @@ config.default_prog = {
   "/bin/zsh",
   "-l",
   "-c",
-  "tmux attach || tmux new -s Terminal",
+  "tmux attach || tmux new",
 }
 
 return config
