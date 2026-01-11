@@ -10,8 +10,8 @@ return {
       bold_keywords = true,
       italic_comments = false,
       transparent = {
-        bg = false,
-        float = false,
+        bg = true,
+        float = true,
       },
       bright_border = true,
       reduced_blue = true,
@@ -19,7 +19,7 @@ return {
       cursorline = {
         bold = false,
         bold_number = true,
-        theme = "light",
+        theme = "dark",
       },
     })
 
