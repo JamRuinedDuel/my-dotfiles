@@ -19,7 +19,7 @@ return {
       cursorline = {
         bold = false,
         bold_number = true,
-        theme = "dark",
+        theme = "light",
       },
     })
 

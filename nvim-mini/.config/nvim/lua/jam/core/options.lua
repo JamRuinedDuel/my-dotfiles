@@ -55,6 +55,10 @@ opt.laststatus = 3
 opt.termguicolors = true
 -- influence how colorschemes render their foreground colors
 opt.background = "dark"
+-- hide mode message in the command line area
+opt.showmode = false
+-- set command line height
+opt.cmdheight = 2
 
 --------------------------------------------------------------------------------
 -- Performance
