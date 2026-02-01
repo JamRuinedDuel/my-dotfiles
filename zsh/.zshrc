@@ -1,5 +1,7 @@
 # use later version of bash from homebrew
 export PATH=/opt/homebrew/bin/bash:$PATH
+export PATH=$(brew --prefix rustup)/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 
 # -----------------------------------------------------------------------------
 # FZF: Fuzzy Finder
