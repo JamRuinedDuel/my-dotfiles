@@ -4,23 +4,23 @@
 # FZF: Fuzzy Finder
 # -----------------------------------------------------------------------------
 
-# If Homebrew is not installed, install it.
-if ! command -v brew &> /dev/null; then
-  echo "Homebrew is not installed. Installing Homebrew..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-# If fzf is not installed, install it.
+# install fzf if not installed yet
 if ! (brew list --formula | grep -q "fzf"); then
+  echo "\e[33mfzf not found. Installing now...\e[0m"
   brew install fzf
 fi
 
-if ! [ -d ~/fzf-git.sh ]; then
-  mkdir ~/fzf-git.sh
-  git clone https://github.com/junegunn/fzf-git.sh.git ~/fzf-git.sh
+# install fzf-git.sh for zsh key bindings
+FZF_GIT_DIR="$HOME/.config/fzf-git"
+FZF_GIT_SCRIPT="$FZF_GIT_DIR/fzf-git.sh"
+if ! [ -f "$FZF_GIT_SCRIPT" ]; then
+  echo "\e[33mfzf-git.sh not found. Downloading now...\e[0m"
+  mkdir -p "$FZF_GIT_DIR"
+  curl -fsSL https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh -o "$FZF_GIT_SCRIPT"
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# source fzf-git.sh
+[[ -f "$FZF_GIT_SCRIPT" ]] && source "$FZF_GIT_SCRIPT"
 
 # Use fd instead of fzf for faster searching
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
