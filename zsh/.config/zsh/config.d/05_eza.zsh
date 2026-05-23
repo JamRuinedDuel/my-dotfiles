@@ -10,3 +10,4 @@ if ! (brew list --formula | grep -q "eza"); then
   brew install eza
 fi
 
+export EZA_CONFIG_DIR="$HOME/.config/eza"
