@@ -10,5 +10,5 @@ if ! (brew list --formula | grep -q "openjdk"); then
   brew install openjdk
 fi
 
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="$(brew --prefix openjdk)/bin:$PATH"
 
