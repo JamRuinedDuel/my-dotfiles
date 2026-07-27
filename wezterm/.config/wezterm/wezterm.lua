@@ -20,7 +20,7 @@ config.font = wezterm.font({
 })
 
 config.font_size = 18
-config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+-- config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.text_background_opacity = 1.0
 
 -- Color & Theme Settings
@@ -53,7 +53,8 @@ config.text_background_opacity = 1.0
 -- config.colors.cursor_bg = config.colors.foreground
 -- config.colors.cursor_fg = config.colors.background
 
-require("monokai-pro").apply_to_config(config, "spectrum")
+-- require("monokai-pro").apply_to_config(config, "spectrum")
+require("github-dark").apply_to_config(config, "dark_default")
 
 -- Tab Settings
 config.enable_tab_bar = false
