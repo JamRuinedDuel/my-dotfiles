@@ -4,12 +4,15 @@ sketchybar --add event aerospace_workspace_change
 
 ITEM_POSITION="$1"
 ITEM_PROPERTIES=(
-  background.color=0x44ffffff
+  background.padding_left=0
+  background.padding_right=10
   background.corner_radius=5
   background.height=20
-  background.drawing=off
-  icon.padding_left=2
-  icon.padding_right=2
+  drawing=off
+  icon.padding_left=10
+  icon.padding_right=5
+  label.padding_left=5
+  label.padding_right=10
 )
 ITEM_SUBSCRIBES=(aerospace_workspace_change)
 

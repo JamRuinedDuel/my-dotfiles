@@ -5,6 +5,7 @@ ITEM_POSITION="$1"
 ITEM_PROPERTIES=(
   update_freq=10
   script="$CONFIG_DIR/script/clock.zsh"
+  icon="󰃭"
 )
 ITEM_SUBSCRIBES=()
 
