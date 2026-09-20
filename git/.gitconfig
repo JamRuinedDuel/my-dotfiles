@@ -6,11 +6,11 @@
   co = checkout
   ci = commit -m
   st = status -sbu
-  history = log --pretty=format:'%C(cyan)%h%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %C(magenta)<%an>%Creset' --abbrev-commit --date=relative
-  h = history
+  hist = log --pretty=format:'%C(cyan)%h%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %C(magenta)<%an>%Creset' --abbrev-commit --date=relative
+  h = hist
 	last = log -1
 [push]
-  autoSetupRemote = 
+  autoSetupRemote =
   autoSetupRemote = true
 [init]
   defaultBranch = main
@@ -29,8 +29,8 @@
 [diff]
   colorMoved = default
 [credential "https://github.com"]
-  helper = 
+  helper =
   helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-  helper = 
+  helper =
   helper = !/opt/homebrew/bin/gh auth git-credential
