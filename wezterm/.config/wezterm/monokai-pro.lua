@@ -18,24 +18,24 @@ local function create_theme(name, palette)
 
     -- Terminal colors
     ansi = {
-      palette.dark1,      -- black
-      palette.accent1,    -- red
-      palette.accent4,    -- green
-      palette.accent3,    -- yellow
-      palette.accent2,    -- blue
-      palette.accent6,    -- magenta
-      palette.accent5,    -- cyan
-      palette.text,       -- white
+      palette.dark1, -- black
+      palette.accent1, -- red
+      palette.accent4, -- green
+      palette.accent3, -- yellow
+      palette.accent2, -- blue
+      palette.accent6, -- magenta
+      palette.accent5, -- cyan
+      palette.text, -- white
     },
     brights = {
-      palette.dimmed3,    -- bright black
-      palette.accent1,    -- bright red
-      palette.accent4,    -- bright green
-      palette.accent3,    -- bright yellow
-      palette.accent2,    -- bright blue
-      palette.accent6,    -- bright magenta
-      palette.accent5,    -- bright cyan
-      palette.text,       -- bright white
+      palette.dimmed3, -- bright black
+      palette.accent1, -- bright red
+      palette.accent4, -- bright green
+      palette.accent3, -- bright yellow
+      palette.accent2, -- bright blue
+      palette.accent6, -- bright magenta
+      palette.accent5, -- bright cyan
+      palette.text, -- bright white
     },
 
     -- Main window colors
@@ -45,32 +45,32 @@ local function create_theme(name, palette)
     -- Tab bar colors
     tab_bar = {
       background = palette.dark1,
-      
+
       active_tab = {
         bg_color = palette.background,
         fg_color = palette.accent3,
-        intensity = 'Bold',
-        underline = 'None',
+        intensity = "Bold",
+        underline = "None",
         italic = false,
         strikethrough = false,
       },
-      
+
       inactive_tab = {
         bg_color = palette.dark1,
         fg_color = palette.dimmed2,
       },
-      
+
       inactive_tab_hover = {
         bg_color = palette.dimmed5,
         fg_color = palette.dimmed1,
         italic = false,
       },
-      
+
       new_tab = {
         bg_color = palette.dark1,
         fg_color = palette.dimmed2,
       },
-      
+
       new_tab_hover = {
         bg_color = palette.dimmed5,
         fg_color = palette.dimmed1,
@@ -111,7 +111,7 @@ local palettes = {
     dimmed4 = "#5b595c",
     dimmed5 = "#403e41",
   },
-  
+
   octagon = {
     dark2 = "#161821",
     dark1 = "#1e1f2b",
@@ -129,7 +129,7 @@ local palettes = {
     dimmed4 = "#535763",
     dimmed5 = "#3a3d4b",
   },
-  
+
   machine = {
     dark2 = "#161b1e",
     dark1 = "#1d2528",
@@ -147,7 +147,7 @@ local palettes = {
     dimmed4 = "#545f62",
     dimmed5 = "#3a4449",
   },
-  
+
   ristretto = {
     dark2 = "#191515",
     dark1 = "#211c1c",
@@ -165,7 +165,7 @@ local palettes = {
     dimmed4 = "#5b5353",
     dimmed5 = "#403838",
   },
-  
+
   spectrum = {
     dark2 = "#131313",
     dark1 = "#191919",
@@ -183,7 +183,7 @@ local palettes = {
     dimmed4 = "#525053",
     dimmed5 = "#363537",
   },
-  
+
   classic = {
     dark2 = "#161613",
     dark1 = "#1d1e19",
@@ -226,7 +226,7 @@ function module.register_color_schemes(config)
   if not config.color_schemes then
     config.color_schemes = {}
   end
-  
+
   for name, palette in pairs(palettes) do
     local scheme_name = "Monokai Pro (" .. name:gsub("^%l", string.upper) .. ")"
     config.color_schemes[scheme_name] = create_theme(scheme_name, palette)
@@ -237,14 +237,14 @@ end
 function module.apply_to_config(config, variant)
   -- Register all color schemes first
   module.register_color_schemes(config)
-  
+
   -- Set the default variant (if not specified, use "pro")
-  variant = variant or "pro" 
+  variant = variant or "pro"
   local scheme_name = "Monokai Pro (" .. variant:gsub("^%l", string.upper) .. ")"
 
   -- Apply the color scheme
   config.color_scheme = scheme_name
-  
+
   -- Optional: Add inactive pane dimming for better visibility when using splits
   config.inactive_pane_hsb = {
     saturation = 0.8,
@@ -254,13 +254,13 @@ end
 
 -- Export available variants for easy reference
 module.variants = {
-  "pro",      -- Default Monokai Pro
-  "octagon",  -- Filter Octagon
-  "machine",  -- Filter Machine
+  "pro", -- Default Monokai Pro
+  "octagon", -- Filter Octagon
+  "machine", -- Filter Machine
   "ristretto", -- Filter Ristretto
   "spectrum", -- Filter Spectrum
-  "classic",  -- Classic Monokai
-  "light",    -- Light theme
+  "classic", -- Classic Monokai
+  "light", -- Light theme
 }
 
 return module
