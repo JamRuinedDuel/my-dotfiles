@@ -46,7 +46,7 @@ return {
           label = label .. " *"
         end
 
-        return " " .. icon .. label .. " "
+        return " " .. icon .. label .. " "
       end,
     })
   end,

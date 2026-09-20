@@ -1,3 +1,5 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.netrw_liststyle = 3
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -18,7 +20,7 @@ opt.autoindent = true
 -- automatically indent based on syntax
 opt.smartindent = true
 -- whether lines wrap or continue off-screen
-opt.wrap = true
+opt.wrap = false
 -- controls the behavior of <BS>, <Del>, <C-W>, <C-U>
 opt.backspace = "indent,eol,start"
 -- avoids wrapping a line in the middle of a word
@@ -46,7 +48,7 @@ opt.relativenumber = false
 -- column for diagnostic icons/git signs
 opt.signcolumn = "yes:1"
 -- highlight current line
-opt.cursorline = false
+opt.cursorline = true
 -- vertical line at specific column
 opt.colorcolumn = ""
 -- Controls when the status line is visible

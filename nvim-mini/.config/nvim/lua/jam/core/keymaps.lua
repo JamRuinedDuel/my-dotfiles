@@ -1,4 +1,4 @@
-local keymap = vim.keymap
+jocal keymap = vim.keymap
 
 -- Exit insert mode easily
 keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
@@ -12,7 +12,8 @@ local toggleMiniFiles = function()
     MiniFiles.reveal_cwd()
   end
 end
-keymap.set("n", "<Leader>e", toggleMiniFiles, { desc = "Open MiniFiles" })
+-- keymap.set("n", "<Leader>e", toggleMiniFiles, { desc = "Open MiniFiles" })
+keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
 keymap.set("n", "<Leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
 
 -- Navigate buffers via <S-h> and <S-l>

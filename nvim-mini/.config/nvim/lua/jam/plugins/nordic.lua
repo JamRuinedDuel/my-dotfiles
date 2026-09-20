@@ -10,12 +10,12 @@ return {
       bold_keywords = true,
       italic_comments = false,
       transparent = {
-        bg = true,
-        float = true,
+        bg = false,
+        float = false,
       },
-      bright_border = true,
+      bright_border = false,
       reduced_blue = true,
-      swap_backgrounds = true,
+      swap_backgrounds = false,
       cursorline = {
         bold = false,
         bold_number = true,

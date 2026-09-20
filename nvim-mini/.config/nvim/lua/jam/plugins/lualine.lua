@@ -49,7 +49,7 @@ return {
     lualine.setup({
       options = {
         theme = custom_nord,
-        section_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
       },
       sections = {
@@ -79,11 +79,7 @@ return {
         lualine_z = {},
       },
       tabline = {
-        lualine_a = {
-          function()
-            return vim.api.nvim_get_current_buf()
-          end
-        },
+        lualine_a = {},
         lualine_b = {},
         lualine_c = {
           {
@@ -91,7 +87,8 @@ return {
             icons_enabled = false,
             use_mode_colors = false,
             buffers_color = {
-              active = "lualine_c_normal",
+              active = { fg = colors.nord0, bg = colors.nord7, gui = "bold" },
+              -- active = "lualine_c_normal",
               inactive = "lualine_c_inactive",
             },
             symbols = {
@@ -100,8 +97,7 @@ return {
               directory = "",
             },
             fmt = function(name, context)
-              local icon = context.current and " " or " "
-              return icon .. name
+              return name
             end,
           },
         },
