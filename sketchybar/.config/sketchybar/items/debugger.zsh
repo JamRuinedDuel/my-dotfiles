@@ -8,7 +8,7 @@ ITEM_POSITION="$1"
 ITEM_PROPERTIES=(
   icon="debug:"
   label=""
-  script="$CONFIG_DIR/script/debug.zsh"
+  script="$CONFIG_DIR/script/debug.zsh $MESSAGE"
 )
 ITEM_SUBSCRIBES=(debug)
 

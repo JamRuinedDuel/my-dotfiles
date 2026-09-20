@@ -1,18 +1,23 @@
 #!/bin/zsh
 
+THEME_COLOR_0=0x00000000
+THEME_COLOR_1=0xff000000
+THEME_COLOR_2=0xffffffff
+THEME_COLOR_3=0x70ffffff
+
 bar=(
-  color=0x00000000
-  border_color=0x00000000
+  # border_color="$THEME_COLOR_0"
+  color=0xf0000000
   position=top
-  height=27
+  height=33
   notch_display_height=0
-  margin=10
-  y_offset=5
-  corner_radius=10
+  margin=0
+  y_offset=0
+  corner_radius=0
   border_width=0
-  blur_radius=50
-  padding_left=0
-  padding_right=0
+  blur_radius=0
+  padding_left=15
+  padding_right=15
   notch_width=200
   notch_offset=0
   display=all
@@ -20,23 +25,25 @@ bar=(
   topmost=off
   sticky=on
   font_smoothing=off
-  shadow=on
+  shadow=off
 )
 
 sketchybar --bar "${bar[@]}"
 
 default=(
-  background.color=0x7721262d
+  background.border_color="$THEME_COLOR_3"
+  background.border_width=1
+  background.color="$THEME_COLOR_0"
+  background.corner_radius=2
+  background.height=22
   background.padding_left=5
   background.padding_right=5
-  background.corner_radius=5
-  background.height=20
-  icon.font="Hack Nerd Font Mono:Regular:13.0"
-  label.font="Hack Nerd Font Mono:Regular:13.0"
-  icon.color=0xffffffff
-  label.color=0xffffffff
+  icon.color="$THEME_COLOR_2"
+  icon.font="Hack Nerd Font Mono:Regular:11.0"
   icon.padding_left=10
   icon.padding_right=5
+  label.color="$THEME_COLOR_2"
+  label.font="Hack Nerd Font Mono:Regular:11.0"
   label.padding_left=5
   label.padding_right=10
 )
@@ -48,8 +55,8 @@ source "$CONFIG_DIR/items/aerospace.zsh" left
 # source "$CONFIG_DIR/items/debugger.zsh" e
 
 source "$CONFIG_DIR/items/clock.zsh" right
-source "$CONFIG_DIR/items/volume.zsh" right
 source "$CONFIG_DIR/items/battery.zsh" right
+source "$CONFIG_DIR/items/volume.zsh" right
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

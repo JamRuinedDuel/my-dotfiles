@@ -2,8 +2,6 @@
 
 SPACE_ID="${1:-${NAME#space.}}"
 CURRENT_FOCUS="${FOCUSED_WORKSPACE:-$(aerospace list-workspaces --focused)}"
-# SPACE_ID="$1"
-# CURRENT_FOCUS="$FOCUSED_WORKSPACE"
 
 # --- DYNAMIC MONITOR MAP LOOKUP ---
 # Grabs all workspace-to-monitor bindings in a single string instantly
@@ -19,9 +17,21 @@ fi
 
 # Check if this is the focused workspace
 if [ "$SPACE_ID" = "$CURRENT_FOCUS" ]; then
-  sketchybar --set "$NAME" background.color=0xff21262d
+  sketchybar \
+    --animate linear 5 \
+    --set "$NAME" \
+      background.border_width=0 \
+      background.color=0xffffffff \
+      icon.color=0xff000000 \
+      label.color=0xff000000
 else
-  sketchybar --set "$NAME" background.color=0x7721262d
+  sketchybar \
+    --animate linear 5 \
+    --set "$NAME" \
+      background.border_width=1 \
+      background.color=0xff000000 \
+      icon.color=0xffffffff \
+      label.color=0xffffffff
 fi
 
 # Check if this is an active workspace

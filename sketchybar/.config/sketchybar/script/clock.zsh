@@ -1,5 +1,5 @@
 #!/bin/bash
 
-DATE="$(date '+%Y-%m-%d %H:%M')"
+DATE="$(date +'%a %b %-e %H:%M')"
 
 sketchybar --set "$NAME" label="$DATE"
