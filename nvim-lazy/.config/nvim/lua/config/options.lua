@@ -46,7 +46,7 @@ opt.relativenumber = false
 -- column for diagnostic icons/git signs
 opt.signcolumn = "yes:1"
 -- highlight current line
-opt.cursorline = false
+opt.cursorline = true
 -- vertical line at specific column
 opt.colorcolumn = ""
 -- Controls when the status line is visible
