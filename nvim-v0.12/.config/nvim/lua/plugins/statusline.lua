@@ -1,8 +1,8 @@
 vim.pack.add({
-  -- lualine
-  'https://github.com/nvim-lualine/lualine.nvim',
   -- dependencies
   'https://github.com/nvim-tree/nvim-web-devicons',
+  -- lualine
+  'https://github.com/nvim-lualine/lualine.nvim',
 })
 
 -- lualine configuration
@@ -10,16 +10,16 @@ require('lualine').setup({
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = {},
-    section_separators = {},
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
-      statusline = { 'neo-tree' },
+      statusline = {},
       winbar = {},
     },
     ignore_focus = {},
     always_divide_middle = true,
     always_show_tabline = true,
-    globalstatus = false,
+    globalstatus = true,
   },
   sections = {
     lualine_a = { 'mode' },

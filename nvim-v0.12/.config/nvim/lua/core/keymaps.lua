@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "
 -- define global keymaps
 vim.keymap.set('n', '<esc>', '<cmd>nohlsearch<cr>', { desc = 'Clear search highlights' })
 vim.keymap.set('i', 'jk', '<esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('n', 'H', '<cmd>bprev<cr>', { desc = 'Go to previous buffer' })
+vim.keymap.set('n', 'L', '<cmd>bnext<cr>', { desc = 'Go to next buffer' })
 
 
 -- WARN: Do not modify!

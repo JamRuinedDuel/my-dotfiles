@@ -9,6 +9,8 @@ require('core.options')
 require('plugins.colorscheme')
 require('plugins.file-explorer')
 require('plugins.statusline')
+require('plugins.bufferline')
+require('plugins.vim-tmux-navigator')
 
 -- loads language servers
 require('core.lsp')

@@ -40,7 +40,7 @@ require('neo-tree').setup({
         modified = ' ',
         renamed = ' ',
         -- status type
-        untracked = '󰛄 ',
+        untracked = ' ',
         ignored = ' ',
         unstaged = '󰝣 ',
         staged = ' ',

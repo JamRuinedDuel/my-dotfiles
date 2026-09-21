@@ -25,7 +25,7 @@ opt.showtabline = 0
 
 opt.autocomplete = true
 opt.autocompletedelay = 50
-opt.clipboard += 'unnamedplus'
+opt.clipboard:append('unnamedplus')
 
 opt.splitright = true
 opt.splitbelow = true
