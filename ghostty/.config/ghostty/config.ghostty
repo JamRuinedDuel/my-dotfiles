@@ -1,6 +1,6 @@
 font-family = Maple Mono
 font-size = 16
-font-synthetic-style = true
+font-synthetic-style = false
 
 adjust-cell-width = 0
 adjust-cell-height = 0
@@ -14,11 +14,11 @@ cursor-opacity = 1
 cursor-style = block
 cursor-style-blink = true
 
-background-opacity = 1
+background-opacity = 0.95
 background-opacity-cells = false
-background-blur = true
+background-blur = macos-glass-regular
 
-window-padding-x = 10
+window-padding-x = 5
 window-padding-y = 5
 window-padding-balance = true
 window-decoration = false
@@ -30,5 +30,3 @@ macos-option-as-alt = left
 
 shell-integration = zsh
 shell-integration-features = no-cursor
-
-bell-features = border
