@@ -47,7 +47,7 @@ $erlang\
 $fennel\
 $fortran\
 $gleam\
-$go\
+$golang\
 $guix_shell\
 $gradle\
 $haskell\
@@ -105,8 +105,7 @@ disabled = false
 [hostname]
 format = '$hostname'
 ssh_only = true
-style_root = ''
-style_user = ''
+style = ''
 disabled = false
 
 [localip]
@@ -128,10 +127,8 @@ style = 'blue'
 disabled = false
 
 [kubernetes]
-ssh_only = false
 format = '[ $symbol$context\($namespace\) ]($style inverted bg:black)'
 style = 'cyan'
-ssh_symbol = ' '
 disabled = false
 
 [directory]
@@ -141,16 +138,16 @@ read_only = ' '
 disabled = false
 
 [shell]
-format = '[ $indicator ]($style inverted bg:black)[]($style)'
+format = '[ $indicator ]($style inverted bg:black)'
 style = 'white'
 disabled = false
 
 [character]
-success_symbol = '[](green)'
-error_symbol = '[](red)'
+success_symbol = '[](bg:green fg:white)[](green)'
+error_symbol = '[](bg:red fg:white)[](red)'
 
 [fill]
-symbol = '-'
+symbol = '·'
 disabled = false
 
 [line_break]
@@ -364,7 +361,7 @@ style = 'green'
 symbol = 'fennel'
 disabled = false
 
-[fortan]
+[fortran]
 format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
 style = 'purple'
 symbol = 'fortran'
@@ -376,7 +373,7 @@ style = '#ffaff3'
 symbol = 'gleam'
 disabled = false
 
-[go]
+[golang]
 format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
 style = 'cyan'
 symbol = 'go'
