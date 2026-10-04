@@ -1,15 +1,634 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
+format = """
+([ ($username)(@$hostname)($localip) ](fg:black bg:yellow))\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+([](white)[](purple)$fossil_branch\
+([](fg:black bg:purple)$fossil_metrics)\
+[](fg:purple))\
+([](white)[](purple)$git_branch\
+([](fg:black bg:purple)$git_commit)\
+([](fg:black bg:purple)$git_state)\
+([](fg:black bg:purple)$git_metrics)\
+([](fg:black bg:purple)$git_status)\
+[](fg:purple))\
+([](white)[](purple)$hg_branch\
+([](fg:black bg:purple)$hg_state)\
+[](fg:purple))\
+([](white)[](purple)$pijul_channel\
+[](fg:purple))\
+$container\
+$direnv\
+$docker_context\
+$gcloud\
+$nats\
+$netns\
+$openstack\
+$spack\
+$fill\
+$buf\
+$bun\
+$c\
+$cpp\
+$cmake\
+$cobol\
+$conda\
+$crystal\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$fortran\
+$gleam\
+$go\
+$guix_shell\
+$gradle\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$maven\
+$memory_usage\
+$meson\
+$mise\
+$mojo\
+$nim\
+$nix_shell\
+$nodejs\
+$ocaml\
+$odin\
+$opa\
+$perl\
+$php\
+$pixi\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$rlang\
+$raku\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$spack\
+$swift\
+$terraform\
+$typst\
+$vagrant\
+$vlang\
+$xmake\
+$zig\
+[](white)[( $cmd_duration)( $job) ](bg:white fg:black)\
+$line_break\
+$shell$character
+"""
 
-[character]
-success_symbol = '[](green)'
-error_symbol = '[](red)'
+[username]
+format = '$user'
+show_always = false
+style_root = ''
+style_user = ''
+disabled = false
+
+[hostname]
+format = '$hostname'
+ssh_only = true
+style_root = ''
+style_user = ''
+disabled = false
+
+[localip]
+format = '\($localipv4\)'
+ssh_only = true
+style = ''
+disabled = false
+
+[shlvl]
+format = '[ $symbol(  $shlvl) ]($style inverted bg:black)'
+symbol = 'level'
+style = 'yellow'
+disabled = true
+
+[singularity]
+format = '[ $symbol(  $env) ]($style inverted bg:black)'
+symbol = 'singularity'
+style = 'blue'
+disabled = false
+
+[kubernetes]
+ssh_only = false
+format = '[ $symbol$context\($namespace\) ]($style inverted bg:black)'
+style = 'cyan'
+ssh_symbol = ' '
+disabled = false
 
 [directory]
+format = '[ $path($read_only) ]($style inverted bg:black)[]($style)'
+style = 'cyan'
 read_only = ' '
+disabled = false
+
+[shell]
+format = '[ $indicator ]($style inverted bg:black)[]($style)'
+style = 'white'
+disabled = false
+
+[character]
+success_symbol = '[](green)'
+error_symbol = '[](red)'
+
+[fill]
+symbol = '-'
+disabled = false
+
+[line_break]
+disabled = false
+
+[cmd_duration]
+format = '$duration'
+min_time = 0
+disabled = false
+
+[jobs]
+format = '$symbol$number'
+symbol_threshold = 1
+number_threshold = 2
+disabled = false
+
+[fossil_branch]
+format = '[ $symbol$branch ](bg:purple fg:black)'
+symbol = ' '
+disabled = true
+
+[fossil_metrics]
+format = '[ +$added -$deleted ](bg:purple fg:black)'
+disabled = true
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ](bg:purple fg:black)'
+symbol = ' '
+disabled = false
+
+[git_commit]
+format = '[ $tag$hash ](bg:purple fg:black)'
+tag_symbol = '󰓹 '
+disabled = false
+
+[git_state]
+format = '[ $state( $progress_current/$progress_total) ](bg:purple fg:black)'
+disabled = false
+
+[git_metrics]
+format = '[ +$added -$deleted ](bg:purple fg:black)'
+disabled = true
+
+[git_status]
+format = '[ $all_status$ahead_behind ](bg:purple fg:black)'
+deleted = '✕'
+disabled = false
+
+[hg_branch]
+format = '[ $symbol$branch ](bg:purple fg:black)'
+symbol = ' '
+disabled = true
+
+[hg_state]
+format = '[ +$added -$deleted ](bg:purple fg:black)'
+disabled = true
+
+[pijul_channel]
+format = '[ $symbol$channel ]($style inverted bg:black)'
+style = 'purple'
+symbol = ' '
+disabled = true
+
+[container]
+format = '[](white)[]($style)[ $symbol $name ]($style inverted bg:black)[]($style)'
+style = 'red'
+symbol = '⬢ '
+disabled = false
+
+[direnv]
+format = '[](white)[]($style)[ $symbol  $loaded/$allowed ]($style inverted bg:black)[]($style)'
+style = 'yellow'
+symbol = 'direnv'
+disabled = true
+
+[docker_context]
+format = '[](white)[]($style)[ $symbol  $context ]($style inverted bg:black)[]($style)'
+style = 'blue'
+symbol = 'docker'
+disabled = false
+
+[gcloud]
+format = '[](white)[]($style)[ $symbol  $account(@$domain)(  $region) ]($style inverted bg:black)[]($style)'
+style = 'blue'
+symbol = 'gcloud'
+disabled = false
+
+[nats]
+format = '[](white)[]($style)[ $symbol  $name ]($style inverted bg:black)[]($style)'
+style = 'purple'
+symbol = 'nats'
+disabled = false
+
+[netns]
+format = '[](white)[]($style)[ $symbol  $name ]($style inverted bg:black)[]($style)'
+style = 'blue'
+symbol = 'netns'
+disabled = false
+
+[openstack]
+format = '[](white)[]($style)[ $symbol(  $cloud)(  $project) ]($style inverted bg:black)[]($style)'
+style = 'yellow'
+symbol = 'openstack'
+disabled = false
+
+[spack]
+format = '[](white)[]($style)[ $symbol(  $environment) ]($style inverted bg:black)[]($style)'
+style = 'blue'
+symbol = 'spack'
+disabled = false
+
+[status]
+disabled = true
+
+[sudo]
+disabled = true
+
+[buf]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'protobuf'
+disabled = false
+
+[bun]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'bun'
+disabled = false
+
+[c]
+format = '[]($style)[ ($version(-$name)  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '149'
+symbol = 'C'
+disabled = false
+
+[cpp]
+format = '[]($style)[ ($version(-$name)  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '149'
+symbol = 'C++'
+disabled = false
+
+[cmake]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'CMake'
+disabled = false
+
+[cobol]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'COBOL'
+disabled = false
+
+[conda]
+format = '[]($style)[ ($environment  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'green'
+symbol = 'conda'
+disabled = false
+
+[crystal]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'crystal'
+disabled = false
+
+[daml]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'cyan'
+symbol = 'daml'
+disabled = false
+
+[dart]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'dart'
+disabled = false
+
+[deno]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'green'
+symbol = 'deno'
+disabled = false
+
+[dotnet]
+format = '[]($style)[ ($tfm  )($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = '.NET'
+disabled = false
+
+[elixir]
+format = '[]($style)[ ($otp_version  )($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'purple'
+symbol = 'elixir'
+disabled = false
+
+[elm]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'cyan'
+symbol = 'elm'
+disabled = false
+
+[erlang]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'erlang'
+disabled = false
+
+[fennel]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'green'
+symbol = 'fennel'
+disabled = false
+
+[fortan]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'purple'
+symbol = 'fortran'
+disabled = false
+
+[gleam]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '#ffaff3'
+symbol = 'gleam'
+disabled = false
+
+[go]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'cyan'
+symbol = 'go'
+disabled = false
+
+[guix_shell]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'guix'
+disabled = false
+
+[gradle]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'bright-cyan'
+symbol = 'gradle'
+disabled = false
+
+[haskell]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'purple'
+symbol = 'λ'
+disabled = false
+
+[haxe]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'haxe'
+disabled = false
+
+[helm]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'white'
+symbol = 'helm'
+disabled = false
+
+[java]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'java'
+disabled = false
+
+[julia]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'purple'
+symbol = 'julia'
+disabled = false
+
+[kotlin]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'kotlin'
+disabled = false
 
 [lua]
-symbol = " "
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'lua'
+disabled = false
+
+[maven]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'bright-cyan'
+symbol = 'mvn'
+disabled = false
+
+[memory_usage]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'white'
+symbol = 'ram'
+threshold = 75
+disabled = true
+
+[meson]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'meson'
+disabled = false
+
+[mise]
+format = '[]($style)[ ($health  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'purple'
+symbol = 'mise'
+disabled = true
+
+[mojo]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '208'
+symbol = 'mojo'
+disabled = false
+
+[nim]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'nim'
+disabled = false
+
+[nix_shell]
+format = '[]($style)[ ($name  )($state  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'nix'
+disabled = false
+
+[nodejs]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'green'
+not_capable_style = 'red'
+symbol = 'node'
+disabled = false
+
+[ocaml]
+format = '[]($style)[ ($switch_name  )($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'ocaml'
+disabled = false
+
+[odin]
+format = '[]($style)[ ($switch_name  )($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'bright-blue'
+symbol = 'odin'
+disabled = false
+
+[opa]
+format = '[]($style)[ ($switch_name  )($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'opa'
+disabled = false
+
+[perl]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '149'
+symbol = 'perl'
+disabled = false
+
+[php]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '147'
+symbol = 'php'
+disabled = false
+
+[pixi]
+format = '[]($style)[ ($environment  )($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'pixi'
+disabled = false
+
+[pulumi]
+format = '[]($style)[ ($stack  )($username  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '5'
+symbol = 'pulumi'
+disabled = false
+
+[purescript]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'white'
+symbol = 'purescript'
+disabled = false
+
+[python]
+format = '[]($style)[ ($virtualenv  )($version  )$symbol( $pyenv_prefix) ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'py'
+disabled = false
+
+[quarto]
+format = '[]($style)[ ($virtualenv  )($version  )$symbol( $pyenv_prefix) ]($style inverted bg:black)[]($style)[](white)'
+style = '#75aadb'
+symbol = 'quarto'
+disabled = false
+
+[rlang]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'r'
+disabled = false
+
+[raku]
+format = '[]($style)[ ($version(-$vm_version)  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '149'
+symbol = 'raku'
+disabled = false
+
+[red]
+format = '[]($style)[ ($version(-$vm_version)  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'red'
+disabled = false
+
+[ruby]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'ruby'
+disabled = false
 
 [rust]
-symbol = " "
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '209'
+symbol = 'rust'
+disabled = false
+
+[scala]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'red'
+symbol = 'scala'
+disabled = false
+
+[solidity]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'sol'
+disabled = false
+
+[swift]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '209'
+symbol = 'swift'
+disabled = false
+
+[terraform]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '105'
+symbol = 'terraform'
+disabled = false
+
+[time]
+disabled = true
+
+[typst]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = '#0093a7'
+symbol = 'typst'
+disabled = false
+
+[vagrant]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'cyan'
+symbol = 'vagrant'
+disabled = false
+
+[vlang]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'blue'
+symbol = 'V'
+disabled = false
+
+[xmake]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'green'
+symbol = 'xmake'
+disabled = false
+
+[zig]
+format = '[]($style)[ ($version  )$symbol ]($style inverted bg:black)[]($style)[](white)'
+style = 'yellow'
+symbol = 'zig'
+disabled = false
