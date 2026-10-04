@@ -1,0 +1,10 @@
+-- vim.pack.add({
+--   { src = 'https://github.com/nvim-mini/mini.files', version = 'main' },
+-- })
+--
+-- local files = require 'mini.files'
+--
+-- files.setup()
+--
+-- _G.PluginKeymaps.files = function()
+-- end

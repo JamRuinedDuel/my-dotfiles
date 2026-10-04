@@ -1,3 +1,7 @@
+-- leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 local opt = vim.opt
 
 opt.tabstop = 2
@@ -6,6 +10,8 @@ opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
 opt.backspace = 'indent,eol,start'
+opt.list = true
+opt.listchars = { space = '·' }
 opt.wrap = false
 opt.linebreak = false
 
@@ -21,7 +27,6 @@ opt.cursorline = true
 opt.colorcolumn = ''
 opt.laststatus = 3
 opt.showmode = false
-opt.showtabline = 0
 
 opt.autocomplete = true
 opt.autocompletedelay = 50

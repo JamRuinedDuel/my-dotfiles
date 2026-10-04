@@ -4,16 +4,7 @@ vim.pack.add({
 
 vim.g.tmux_navigator_no_mappings = 1
 
-
--- set vim-tmux-navigator custom keymaps
 _G.PluginKeymaps.vim_tmux_navigator = function()
-  -- <leader>e
-  vim.keymap.set('n', 'C-h', '<cmd>TmuxNavigateLeft<cr>', {
-    desc = 'Tmux navigate left',
-    silent = true,
-  })
-  vim.keymap.set('n', 'C-l', '<cmd>TmuxNavigateRight<cr>', {
-    desc = 'Tmux navigate right',
-    silent = true,
-  })
+  vim.keymap.set('n', '<C-h>', vim.cmd.TmuxNavigateLeft, { desc = 'Tmux navigate left', silent = true })
+  vim.keymap.set('n', '<C-l>', vim.cmd.TmuxNavigateRight, { desc = 'Tmux navigate right', silent = true })
 end

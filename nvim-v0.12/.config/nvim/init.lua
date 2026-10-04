@@ -1,19 +1,30 @@
--- init.lua
-
--- initialize the global keymap registry
+-- global keymap registry
 _G.PluginKeymaps = {}
 
--- loads basic options
-require('core.options')
+require 'core.options'
 
-require('plugins.colorscheme')
-require('plugins.file-explorer')
-require('plugins.statusline')
-require('plugins.bufferline')
-require('plugins.vim-tmux-navigator')
+require 'plugins.icons'
+require 'plugins.colorscheme'
 
--- loads language servers
-require('core.lsp')
+require 'plugins.ia'
+require 'plugins.surround'
+require 'plugins.pairs'
+require 'plugins.move'
+require 'plugins.diff'
 
--- loads keymaps
-require('core.keymaps')
+require 'plugins.completion'
+
+require 'plugins.files'
+require 'plugins.cmdline'
+require 'plugins.pick'
+require 'plugins.statusline'
+require 'plugins.tabline'
+require 'plugins.cursorword'
+require 'plugins.animate'
+require 'plugins.extra'
+
+require 'plugins.vim-tmux-navigator'
+
+require 'plugins.clue'
+require 'core.package'
+require 'core.keymaps'
