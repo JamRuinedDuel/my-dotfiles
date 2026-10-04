@@ -1,6 +1,4 @@
--- global keymap registry
-_G.PluginKeymaps = {}
-
+require 'core.helpers'
 require 'core.options'
 
 require 'plugins.icons'
@@ -17,8 +15,10 @@ require 'plugins.completion'
 require 'plugins.files'
 require 'plugins.cmdline'
 require 'plugins.pick'
-require 'plugins.statusline'
-require 'plugins.tabline'
+-- require 'plugins.statusline'
+require 'plugins.lualine'
+-- require 'plugins.tabline'
+require 'plugins.bufferline'
 require 'plugins.cursorword'
 require 'plugins.animate'
 require 'plugins.extra'

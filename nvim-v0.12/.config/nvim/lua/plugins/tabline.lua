@@ -6,14 +6,9 @@ vim.opt.showtabline = 2
 
 local tabline = require('mini.tabline')
 
-local get_hl_hex = function(name)
-  local hl = vim.api.nvim_get_hl(0, { name = name,  link = true })
-  return { fg = hl.fg or 'NONE', bg = hl.bg or 'NONE' }
-end
-
-local hl_cyan = get_hl_hex('MiniIconsCyan')
-local hl_grey = get_hl_hex('Grey')
-local hl_todo = get_hl_hex('Todo')
+local hl_cyan = _G.Helpers.get_hl_hex('MiniIconsCyan')
+local hl_grey = _G.Helpers.get_hl_hex('Grey')
+local hl_todo = _G.Helpers.get_hl_hex('Todo')
 
 local set_tabline_highlights = function()
   vim.api.nvim_set_hl(0, 'MyTablineActive',            { fg = hl_todo.fg, bg = hl_cyan.fg, bold = false })

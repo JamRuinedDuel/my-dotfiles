@@ -23,7 +23,6 @@ opt.incsearch = true
 opt.number = true
 opt.relativenumber = false
 opt.signcolumn = 'yes:1'
-opt.cursorline = true
 opt.colorcolumn = ''
 opt.laststatus = 3
 opt.showmode = false

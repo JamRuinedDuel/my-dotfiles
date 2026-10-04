@@ -8,5 +8,7 @@ icons.setup({
   style = 'glyph',
 })
 
+icons.mock_nvim_web_devicons()
+
 _G.PluginKeymaps.icons = function()
 end
