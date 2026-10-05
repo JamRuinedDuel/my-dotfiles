@@ -147,7 +147,7 @@ success_symbol = '[](bg:green fg:white)[](green)'
 error_symbol = '[](bg:red fg:white)[](red)'
 
 [fill]
-symbol = '·'
+symbol = ' '
 disabled = false
 
 [line_break]
@@ -175,24 +175,24 @@ disabled = true
 
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ](bg:purple fg:black)'
-symbol = ' '
+symbol = '󰊢 '
 disabled = false
 
 [git_commit]
-format = '[ $tag$hash ](bg:purple fg:black)'
+format = '([ $tag$hash ](bg:purple fg:black))'
 tag_symbol = '󰓹 '
 disabled = false
 
 [git_state]
-format = '[ $state( $progress_current/$progress_total) ](bg:purple fg:black)'
+format = '([ $state( $progress_current/$progress_total) ](bg:purple fg:black))'
 disabled = false
 
 [git_metrics]
-format = '[ +$added -$deleted ](bg:purple fg:black)'
+format = '([ +$added -$deleted ](bg:purple fg:black))'
 disabled = true
 
 [git_status]
-format = '[ $all_status$ahead_behind ](bg:purple fg:black)'
+format = '([ $all_status$ahead_behind ](bg:purple fg:black))'
 deleted = '✕'
 disabled = false
 
