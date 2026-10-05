@@ -7,5 +7,19 @@ _G.Helpers = {}
 -- get highlight group attributes
 _G.Helpers.get_hl_hex = function(name)
   local hl = vim.api.nvim_get_hl(0, { name = name,  link = true })
-  return { fg = hl.fg or 'NONE', bg = hl.bg or 'NONE' }
+  local colors = {}
+
+  if hl.fg then
+    colors.fg = string.format("#%06x", hl.fg)
+  else
+    colors.fg = 'NONE'
+  end
+
+  if hl.bg then
+    colors.bg = string.format("#%06x", hl.bg)
+  else
+    colors.bg = 'NONE'
+  end
+
+  return colors
 end

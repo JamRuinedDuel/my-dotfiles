@@ -16,12 +16,14 @@ vim.api.nvim_create_autocmd('Colorscheme', {
   callback = set_statusline_highlights,
 })
 
-custom_gruvbox.normal.c.bg = 'NONE'
-custom_gruvbox.insert.c.bg = 'NONE'
-custom_gruvbox.visual.c.bg = 'NONE'
-custom_gruvbox.replace.c.bg = 'NONE'
-custom_gruvbox.command.c.bg = 'NONE'
-custom_gruvbox.inactive.c.bg = 'NONE'
+local hl_white = _G.Helpers.get_hl_hex('Normal').fg
+local hl_blue = _G.Helpers.get_hl_hex('Blue').fg
+local hl_green = _G.Helpers.get_hl_hex('Green').fg
+local hl_red = _G.Helpers.get_hl_hex('Red').fg
+local hl_orange = _G.Helpers.get_hl_hex('Orange').fg
+local hl_yellow = _G.Helpers.get_hl_hex('Yellow').fg
+
+local custom_gruvbox = require('themes.lualine.gruvbox-material')
 
 lualine.setup({
   options = {
