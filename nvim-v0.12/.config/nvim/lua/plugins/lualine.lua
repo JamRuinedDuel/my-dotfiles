@@ -3,7 +3,23 @@ vim.pack.add({
 })
 
 local lualine = require 'lualine'
-local custom_gruvbox = require 'lualine.themes.gruvbox'
+local colors = require 'themes.gruvbox.material.colors'
+local theme = require 'themes.gruvbox.material.lualine'
+
+local mode_map = {
+  n = 'normal',
+  i = 'insert',
+  v = 'visual',
+  V = 'visual',
+  ['\22'] = 'visual',
+  c = 'command',
+  r = 'replace',
+}
+
+local get_full_mode = function()
+  local current_mode = vim.fn.mode()
+  return mode_map[current_mode] or current_mode
+end
 
 local set_statusline_highlights = function()
   vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
@@ -16,38 +32,66 @@ vim.api.nvim_create_autocmd('Colorscheme', {
   callback = set_statusline_highlights,
 })
 
-local hl_white = _G.Helpers.get_hl_hex('Normal').fg
-local hl_blue = _G.Helpers.get_hl_hex('Blue').fg
-local hl_green = _G.Helpers.get_hl_hex('Green').fg
-local hl_red = _G.Helpers.get_hl_hex('Red').fg
-local hl_orange = _G.Helpers.get_hl_hex('Orange').fg
-local hl_yellow = _G.Helpers.get_hl_hex('Yellow').fg
-
-local custom_gruvbox = require('themes.lualine.gruvbox-material')
-
 lualine.setup({
   options = {
     icons_enabled = true,
-    theme = custom_gruvbox,
-    component_separator = { left = '', right = '' },
-    section_separator = { left = '', right = '' },
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
+    theme = theme,
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
+    -- component_separators = { left = '', right = '' },
+    -- section_separators = { left = '', right = '' },
+    disabled_filetypes = { statusline = {}, winbar = {} },
     ignore_focus = {},
     always_divide_middle = true,
     always_show_tabline = false,
     globalstatus = true,
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = {
+      {
+        'mode',
+        icon_enabled = false,
+        fmt = function(str, ctx)
+          return str:lower():sub(1,1)
+        end,
+        padding = 1,
       },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { 'filename' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_y = { 'progress' },
-    lualine_z = { 'location' ,}
+      {
+        function() return '' end,
+        icon_enabled = false,
+        fmt = nil,
+        padding = 0,
+        color = {
+          fg = colors.white,
+          bg = colors.none,
+        }
+      },
+    },
+    lualine_b = {
+      {
+        'branch',
+        color = {
+          fg = colors.black,
+          bg = colors.green,
+        },
+      },
+      'diff',
+      'diagnostics',
+    },
+    lualine_c = {
+      'filename',
+    },
+    lualine_x = {
+      'encoding',
+      'fileformat',
+      'filetype',
+    },
+    lualine_y = {
+      'progress',
+    },
+    lualine_z = {
+      'location',
+    },
   },
   inactive_sections = {
     lualine_a = {},
