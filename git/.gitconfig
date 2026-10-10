@@ -1,6 +1,6 @@
 [user]
   name = Almujeer Uddin
-	email = 68914647+JamRuinedDuel@users.noreply.github.com
+  email = 68914647+JamRuinedDuel@users.noreply.github.com
 [alias]
   br = branch
   co = checkout
@@ -8,7 +8,7 @@
   st = status -sbu
   hist = log --pretty=format:'%C(cyan)%h%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %C(magenta)<%an>%Creset' --abbrev-commit --date=relative
   h = hist
-	last = log -1
+  last = log -1
 [push]
   autoSetupRemote =
   autoSetupRemote = true
