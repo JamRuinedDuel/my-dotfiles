@@ -6,19 +6,19 @@ $shlvl\
 $singularity\
 $kubernetes\
 $directory\
-([](white)[](purple)$fossil_branch\
+([](white)[](purple)$fossil_branch\
 ([](fg:black bg:purple)$fossil_metrics)\
 [](fg:purple))\
-([](white)[](purple)$git_branch\
+([](white)[](purple)$git_branch\
 ([](fg:black bg:purple)$git_commit)\
 ([](fg:black bg:purple)$git_state)\
 ([](fg:black bg:purple)$git_metrics)\
 ([](fg:black bg:purple)$git_status)\
 [](fg:purple))\
-([](white)[](purple)$hg_branch\
+([](white)[](purple)$hg_branch\
 ([](fg:black bg:purple)$hg_state)\
 [](fg:purple))\
-([](white)[](purple)$pijul_channel\
+([](white)[](purple)$pijul_channel\
 [](fg:purple))\
 $container\
 $direnv\
@@ -92,7 +92,7 @@ $xmake\
 $zig\
 [](white)[( $cmd_duration)( $job) ](bg:white fg:black)\
 $line_break\
-$shell$character
+$character
 """
 
 [username]
@@ -132,7 +132,7 @@ style = 'cyan'
 disabled = false
 
 [directory]
-format = '[ $path($read_only) ]($style inverted bg:black)[]($style)'
+format = '[  $path($read_only) ]($style inverted bg:black)[]($style)'
 style = 'cyan'
 read_only = ' '
 disabled = false
@@ -143,8 +143,8 @@ style = 'white'
 disabled = false
 
 [character]
-success_symbol = '[](bg:green fg:white)[](green)'
-error_symbol = '[](bg:red fg:white)[](red)'
+success_symbol = '[◉⇛](green)'
+error_symbol = '[◉⇛](red)'
 
 [fill]
 symbol = ' '
@@ -175,7 +175,7 @@ disabled = true
 
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ](bg:purple fg:black)'
-symbol = '󰊢 '
+symbol = ' '
 disabled = false
 
 [git_commit]
