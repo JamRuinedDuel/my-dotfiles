@@ -1,9 +1,14 @@
-font-family = Maple Mono
+# font-family = Maple Mono
+# font-family = Fira Code
+# font-family = Victor Mono
+# font-family = Departure Mono
+# font-family = Envy Code R
+font-family = Martian Mono
 font-size = 16
-font-synthetic-style = false
+font-synthetic-style = true
 
 adjust-cell-width = 0
-adjust-cell-height = 0
+adjust-cell-height = 2
 
 theme = Gruvbox Material Dark
 
@@ -14,9 +19,9 @@ cursor-opacity = 1
 cursor-style = block
 cursor-style-blink = true
 
-background-opacity = 1.0
+background-opacity = 0.9
 background-opacity-cells = false
-background-blur = macos-glass-regular
+background-blur = true
 
 window-padding-x = 5
 window-padding-y = 5
