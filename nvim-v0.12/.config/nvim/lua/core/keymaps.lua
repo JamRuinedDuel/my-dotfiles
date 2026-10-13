@@ -13,7 +13,6 @@ vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Move to bottom split' })
 vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Move to top split' })
 vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Move to right split' })
 
-
 -- WARN: Do not modify!
 -- load all registered plugin keymaps
 if _G.PluginKeymaps then

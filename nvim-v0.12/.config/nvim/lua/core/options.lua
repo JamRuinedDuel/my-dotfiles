@@ -34,3 +34,5 @@ opt.clipboard:append('unnamedplus')
 opt.splitright = true
 opt.splitbelow = true
 opt.equalalways = true
+
+opt.undofile = true

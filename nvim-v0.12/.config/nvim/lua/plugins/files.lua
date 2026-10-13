@@ -4,7 +4,18 @@ vim.pack.add({
 
 local files = require('mini.files')
 
-files.setup()
+files.setup({
+  options = {
+    use_as_default_explorer = true,
+  }
+})
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'MiniFilesWindowOpen',
+  callback = function(args)
+    vim.wo[args.data.win_id].list = false
+  end,
+})
 
 local toggle_explorer = function()
   if not files.close() then

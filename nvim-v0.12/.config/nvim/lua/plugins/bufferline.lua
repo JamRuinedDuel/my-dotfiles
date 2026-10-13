@@ -4,16 +4,12 @@ vim.pack.add({
 
 vim.opt.showtabline = 2
 
-local cokeline = require('cokeline')
-
-local hl_white = _G.Helpers.get_hl_hex('Normal').fg
-local hl_black = _G.Helpers.get_hl_hex('Todo').fg
-local hl_grey = _G.Helpers.get_hl_hex('Grey').fg
-local hl_cyan = _G.Helpers.get_hl_hex('MiniIconsCyan').fg
+local cokeline = require 'cokeline'
+local colors = require 'themes.gruvbox.material.colors'
 
 local set_tabline_highlights = function()
-  vim.api.nvim_set_hl(0, 'Tabline', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'TablineFill', { bg = 'NONE' })
+  vim.api.nvim_set_hl(0, 'Tabline', { bg = colors.none })
+  vim.api.nvim_set_hl(0, 'TablineFill', { bg = colors.none })
 end
 
 set_tabline_highlights()
@@ -34,56 +30,33 @@ cokeline.setup({
   },
   default_hl = {
     fg = function(buf)
-      return buf.is_focused and hl_black or hl_white
+      return buf.is_focused and colors.gray or colors.white
     end,
     bg = function(buf)
-      return buf.is_focused and hl_cyan or 'NONE'
+      return buf.is_focused and colors.cyan or colors.none
     end,
-  }, components = {
+  },
+  components = {
     {
-      text = function(buf)
-        return (!buf.is_first and buf.is_focused) and '' or ' '
-      end,
-      fg = function(buf)
-        return buf.is_focused and hl_cyan or 'NONE'
-      end,
-      bg = 'NONE',
+      text = function(buf) return (!buf.is_first and buf.is_focused) and '' or ' ' end,
+      fg = function(buf) return buf.is_focused and colors.cyan or colors.none end,
+      bg = colors.none,
+    },
+    { text = function(buf) return ' ' .. buf.devicon.icon end },
+    { text = function(buf) return buf.unique_prefix end },
+    { text = function(buf) return buf.filename end },
+    { text = function(buf) return buf.is_modified and ' [+]' or '' end },
+    { text = function(buf) return buf.is_readonly and ' [-]' or '' end },
+    { text = ' ' },
+    {
+      text = function(buf) return buf.is_focused and '' or ' ' end,
+      fg = function(buf) return buf.is_focused and colors.cyan or colors.none end,
+      bg = colors.none,
     },
     {
-      text = function(buf)
-        return ' ' .. buf.devicon.icon
-      end,
-    },
-    {
-      text = function(buf)
-        return buf.unique_prefix
-      end,
-    },
-    {
-      text = function(buf)
-        return buf.filename
-      end,
-    },
-    {
-      text = function(buf)
-        return buf.is_modified and '* ' or ' '
-      end,
-    },
-    {
-      text = function(buf)
-        return buf.is_focused and '' or ' '
-      end,
-      fg = function(buf)
-        return buf.is_focused and hl_cyan or 'NONE'
-      end,
-      bg = 'NONE',
-    },
-    {
-      text = function(buf)
-        return buf.is_last and '' or ''
-      end,
-      fg = hl_white,
-      bg = 'NONE',
+      text = function(buf) return buf.is_last and '' or '' end,
+      fg = colors.white,
+      bg = colors.none,
     },
   },
 })

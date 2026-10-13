@@ -6,21 +6,6 @@ local lualine = require 'lualine'
 local colors = require 'themes.gruvbox.material.colors'
 local theme = require 'themes.gruvbox.material.lualine'
 
-local mode_map = {
-  n = 'normal',
-  i = 'insert',
-  v = 'visual',
-  V = 'visual',
-  ['\22'] = 'visual',
-  c = 'command',
-  r = 'replace',
-}
-
-local get_full_mode = function()
-  local current_mode = vim.fn.mode()
-  return mode_map[current_mode] or current_mode
-end
-
 local set_statusline_highlights = function()
   vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
   vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
@@ -36,10 +21,8 @@ lualine.setup({
   options = {
     icons_enabled = true,
     theme = theme,
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
-    -- component_separators = { left = '', right = '' },
-    -- section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = { statusline = {}, winbar = {} },
     ignore_focus = {},
     always_divide_middle = true,
@@ -50,48 +33,79 @@ lualine.setup({
     lualine_a = {
       {
         'mode',
-        icon_enabled = false,
-        fmt = function(str, ctx)
-          return str:lower():sub(1,1)
-        end,
-        padding = 1,
-      },
-      {
-        function() return '' end,
-        icon_enabled = false,
-        fmt = nil,
-        padding = 0,
-        color = {
-          fg = colors.white,
-          bg = colors.none,
-        }
+        icon = '󰚩',
+        fmt = function(str, ctx) return str:lower() end,
       },
     },
     lualine_b = {
       {
-        'branch',
-        color = {
-          fg = colors.black,
-          bg = colors.green,
-        },
+        function() return '' end,
+        color = { bg = colors.none, fg = colors.white },
+        padding = 0,
       },
-      'diff',
-      'diagnostics',
+      {
+        'branch',
+        icon = '',
+        color = { bg = colors.purple },
+        separator = { left = '', right = '' },
+      },
     },
     lualine_c = {
-      'filename',
+      {
+        function() return '' end,
+        padding = 0,
+        separator = '',
+      },
+      {
+        'filename',
+        path = 1,
+        separator = '',
+      },
+      {
+        'diagnostics',
+        sources = {
+          'nvim_lsp',
+          'nvim_diagnostic',
+          'nvim_workspace_diagnostic',
+          'coc',
+          'ale',
+          'vim_lsp',
+        },
+      },
     },
     lualine_x = {
-      'encoding',
-      'fileformat',
-      'filetype',
+      {
+        'filetype',
+        colored = false,
+        icon_only = false,
+        separator = '',
+      },
+      {
+        'encoding',
+        separator = '',
+      },
+      {
+        'fileformat',
+        separator = '',
+        symbols = {
+          unix = 'unix',
+          doc = 'doc',
+          mac = 'mac',
+        },
+      },
+      {
+        function() return '' end,
+        color = { bg = colors.none, fg = colors.white },
+        padding = 0,
+      },
     },
     lualine_y = {
-      'progress',
+      {
+        'location',
+        color = { bg = colors.purple },
+      },
     },
-    lualine_z = {
-      'location',
-    },
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {},

@@ -1,11 +1,20 @@
 vim.pack.add({
   { src = 'https://github.com/nvim-mini/mini.ai', version = 'main' },
+  { src = 'https://github.com/nvim-mini/mini.extra', version = 'main' },
 })
 
 local ia = require 'mini.ai'
+local extra = require 'mini.extra'
+local gen_ai_spec = extra.gen_ai_spec
 
 ia.setup({
-  custom_textobjects = {},
+  custom_textobjects = {
+    B = gen_ai_spec.buffer(),
+    D = gen_ai_spec.diagnostic(),
+    I = gen_ai_spec.indent(),
+    L = gen_ai_spec.line(),
+    N = gen_ai_spec.number(),
+  },
   mappings = {
     around = 'a',
     inside = 'i',
