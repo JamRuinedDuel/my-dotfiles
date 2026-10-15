@@ -94,6 +94,7 @@ $zig\
 $line_break\
 $character
 """
+continuation_prompt = '[\[[](yellow)\] ](white)'
 
 [username]
 format = '$user'
@@ -143,8 +144,8 @@ style = 'white'
 disabled = false
 
 [character]
-success_symbol = '[◉⇛](green)'
-error_symbol = '[◉⇛](red)'
+success_symbol = '[\[[](green)\]](white)'
+error_symbol = '[\[[](red)\]](white)'
 
 [fill]
 symbol = ' '
