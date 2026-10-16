@@ -92,8 +92,7 @@ $xmake\
 $zig\
 [](white)[( $cmd_duration)( $job) ](bg:white fg:black)\
 $line_break\
-$character
-"""
+$character"""
 continuation_prompt = '[\[[](yellow)\] ](white)'
 
 [username]
