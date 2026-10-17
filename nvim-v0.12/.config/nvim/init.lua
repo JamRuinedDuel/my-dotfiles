@@ -11,8 +11,6 @@ require 'plugins.move'
 require 'plugins.diff'
 require 'plugins.hipatterns'
 
--- require 'plugins.completion'
-
 require 'plugins.files'
 require 'plugins.cmdline'
 require 'plugins.pick'
@@ -22,6 +20,9 @@ require 'plugins.cursorword'
 require 'plugins.animate'
 
 require 'plugins.vim-tmux-navigator'
+
+require 'plugins.lspconfig'
+require 'plugins.completion'
 
 require 'plugins.clue'
 require 'core.keymaps'

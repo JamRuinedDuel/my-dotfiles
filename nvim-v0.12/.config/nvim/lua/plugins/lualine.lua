@@ -34,7 +34,7 @@ lualine.setup({
       {
         'mode',
         icon = '󰚩',
-        fmt = function(str, ctx) return str:lower() end,
+        fmt = function(str) return str:lower() end,
       },
     },
     lualine_b = {

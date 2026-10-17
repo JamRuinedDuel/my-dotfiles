@@ -1,80 +1,99 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "10198f904da1e7f77aeb0368414f871568c0d898",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "blink.lib": {
+      "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
+      "src": "https://github.com/saghen/blink.lib"
+    },
     "gruvbox-material": {
       "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
       "src": "https://github.com/sainnhe/gruvbox-material"
+    },
+    "lazydev.nvim": {
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mason-lspconfig.nvim": {
+      "rev": "00b5473cca4db5b410ff4bae724e3b6e21f2687f",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason-tool-installer.nvim": {
+      "rev": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
+    "mason.nvim": {
+      "rev": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
     "mini.ai": {
-      "rev": "c2c4278beb759aa24b9506f56a67186a6cc2209c",
+      "rev": "d0c4987a1ead2bcf4eb22cc9815c662d76677c08",
       "src": "https://github.com/nvim-mini/mini.ai",
       "version": "'main'"
     },
     "mini.animate": {
-      "rev": "fe1257505eaec2b988aa1f80f6471db850d99bb1",
+      "rev": "6cf2bc01dd074d4b2ec606b40ea3c7c9f1dc99cc",
       "src": "https://github.com/nvim-mini/mini.animate",
       "version": "'main'"
     },
-    "mini.clue": {
-      "rev": "75e803eef5ca2be91e6c6030930e9f8723f2caae",
-      "src": "https://github.com/nvim-mini/mini.clue",
-      "version": "'main'"
-    },
     "mini.cmdline": {
-      "rev": "e1c4d2043730b8c29d18b305d52c1bf2e0e215d6",
+      "rev": "1006a386ab8e6d3c4567fddd31cd9d47b3cb63ba",
       "src": "https://github.com/nvim-mini/mini.cmdline",
       "version": "'main'"
     },
     "mini.cursorword": {
-      "rev": "d06a70d2779851b2119459943312a4215039b153",
+      "rev": "643e21d31210d1293ba70d60e7edc45dfcca518e",
       "src": "https://github.com/nvim-mini/mini.cursorword",
       "version": "'main'"
     },
     "mini.diff": {
-      "rev": "626b8a5b93874c4d05ca25aedec56cfff0b378fb",
+      "rev": "ce542d15eacf068f81f5e516da7d486db808c559",
       "src": "https://github.com/nvim-mini/mini.diff",
       "version": "'main'"
     },
     "mini.extra": {
-      "rev": "2d30f3830510c1cb1618b4e8efbb07356ecfda4d",
+      "rev": "7dcc3ee5ba638cca654125f40f6e3ffbc52e0dc4",
       "src": "https://github.com/nvim-mini/mini.extra",
       "version": "'main'"
     },
     "mini.files": {
-      "rev": "7821bb920b8f0b114c756fb9bd39fd62d76961ac",
+      "rev": "3fe8e33d37a8c455762800c39bab9af317dd53b4",
       "src": "https://github.com/nvim-mini/mini.files",
       "version": "'main'"
     },
     "mini.hipatterns": {
-      "rev": "7c840c71d6a91f53d734cab2b6fe2290d285ec3b",
+      "rev": "8e18b4970f21be0db157104786d2be43058cdd44",
       "src": "https://github.com/nvim-mini/mini.hipatterns",
       "version": "'main'"
     },
     "mini.icons": {
-      "rev": "f642e3ba8c12afbc8f32f6d77ef6597eac56786f",
+      "rev": "f916635dc5ae2f479fbb9ab8184bb9444b62e86c",
       "src": "https://github.com/nvim-mini/mini.icons",
       "version": "'main'"
     },
     "mini.move": {
-      "rev": "48fcaac289a19b8eff2fd5fe203267d478a8abdc",
+      "rev": "57435a0f6654c232405424a78424bb3edbedfa7c",
       "src": "https://github.com/nvim-mini/mini.move",
       "version": "'main'"
     },
     "mini.pairs": {
-      "rev": "b1c5a726921b7a8c9321e9a7a208aa0571de5810",
+      "rev": "03eb1f0062a2cee5314d1ac3939246e4bb21352e",
       "src": "https://github.com/nvim-mini/mini.pairs",
       "version": "'main'"
     },
     "mini.pick": {
-      "rev": "8dbbb2c570613370695bea8b9bee0f11d4da5ca9",
+      "rev": "7cb8fd34bde460986e5e39e9539a9f992ec9772e",
       "src": "https://github.com/nvim-mini/mini.pick",
       "version": "'main'"
     },
     "mini.surround": {
-      "rev": "72feeaa0f984646efde875cc775a97b6f8a8be9b",
+      "rev": "59ce0acf79e1d930756ef3a7cb4c2369560cf548",
       "src": "https://github.com/nvim-mini/mini.surround",
       "version": "'main'"
     },
@@ -82,9 +101,17 @@
       "rev": "854849e6b853a6ee1f17d62c80ae37435cfb0a3e",
       "src": "https://github.com/willothy/nvim-cokeline"
     },
+    "nvim-lspconfig": {
+      "rev": "45a3a444b710511c39abca3b60bb6e23a21e3de5",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",
       "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
+    "which-key.nvim": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }

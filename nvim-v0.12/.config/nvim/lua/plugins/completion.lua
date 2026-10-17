@@ -1,35 +1,55 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-mini/mini.completion', version = 'main' },
+  { src = 'https://github.com/saghen/blink.lib' },
+  { src = 'https://github.com/saghen/blink.cmp' },
 })
 
-local completion = require 'mini.completion'
+local cmp = require 'blink.cmp'
 
-completion.setup({
-  lsp_completion = {
-    source_func = 'omnifunc',
-    auto_setup = false,
+cmp.build():pwait()
+cmp.setup({
+  keymap = {
+    preset = 'default',
+    ['<Tab>'] = { 'select_next', 'fallback' },
+    ['<S-Tab>'] = { 'select_prev', 'fallback' },
+    -- ['<CR>'] = { 'select_and_accept' },
   },
-  fallback_action = '<C-n>',
-  mappings = {
-    force_twostep = '<C-Space>',
-    force_fallback = '<A-Space>',
-    scroll_down = '<C-f>',
-    scroll_up = '<C-b>',
+  completion = {
+    documentation = {
+      auto_show = true,
+    },
+    menu = {
+      auto_show = false,
+    },
+    keyword = {
+      range = 'full',
+    },
+    accept = {
+      auto_brackets = {
+        enabled = true,
+      },
+    },
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = true,
+      },
+    },
+    ghost_text = {
+      enabled = true,
+    },
+  },
+  sources = {
+    default = {
+      'lsp',
+      'path',
+      'snippets',
+      'buffer',
+    },
+  },
+  fuzzy = {
+    implementation = 'prefer_rust_with_warning',
   },
 })
-
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    vim.bo[args.buf].omnifunc = 'v:lua.MiniCompletion.completfunc_lsp'
-  end,
-})
-
-local capabilities = completion.get_lsp_capabilities()
-
-vim.lsp.config('*', { capabilities = capabilities })
-
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('jdlts')
 
 _G.PluginKeymaps.completion = function()
 end

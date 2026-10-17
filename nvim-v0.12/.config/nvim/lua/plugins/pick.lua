@@ -12,7 +12,7 @@ pick.setup({
     use_cache = false,
   },
   window = {
-    prompt_caret = '▁',
+    prompt_caret = '█',
   }
 })
 
@@ -41,7 +41,7 @@ end
 
 local open_help_picker = function()
   return pick.builtin.help({
-    default_split = 'vertical',
+    default_split = 'tab',
   })
 end
 
