@@ -279,13 +279,13 @@ disabled = false
 
 [c]
 format = '[]($style)[ ($version(-$name)  )$symbol ]($style inverted bg:black)[]($style)[](white)'
-style = '149'
+style = 'green'
 symbol = 'C'
 disabled = false
 
 [cpp]
 format = '[]($style)[ ($version(-$name)  )$symbol ]($style inverted bg:black)[]($style)[](white)'
-style = '149'
+style = 'green'
 symbol = 'C++'
 disabled = false
 
