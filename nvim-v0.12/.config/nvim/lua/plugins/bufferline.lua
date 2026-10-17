@@ -33,13 +33,13 @@ cokeline.setup({
       return buf.is_focused and colors.gray or colors.white
     end,
     bg = function(buf)
-      return buf.is_focused and colors.cyan or colors.none
+      return buf.is_focused and colors.white or colors.none
     end,
   },
   components = {
     {
-      text = function(buf) return (!buf.is_first and buf.is_focused) and '' or ' ' end,
-      fg = function(buf) return buf.is_focused and colors.cyan or colors.none end,
+      text = function(buf) return (!buf.is_first and buf.is_focused) and '' or '' end,
+      fg = function(buf) return buf.is_focused and colors.white or colors.none end,
       bg = colors.none,
     },
     { text = function(buf) return ' ' .. buf.devicon.icon end },
@@ -50,7 +50,7 @@ cokeline.setup({
     { text = ' ' },
     {
       text = function(buf) return buf.is_focused and '' or ' ' end,
-      fg = function(buf) return buf.is_focused and colors.cyan or colors.none end,
+      fg = function(buf) return buf.is_focused and colors.white or colors.none end,
       bg = colors.none,
     },
     {
