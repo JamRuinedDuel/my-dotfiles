@@ -1,8 +1,8 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-mini/mini.animate', version = 'main' },
+  { src = "https://github.com/nvim-mini/mini.animate", version = "main" },
 })
 
-local animate = require 'mini.animate'
+local animate = require("mini.animate")
 
 animate.setup({
   cursor = { enable = true },
@@ -12,5 +12,4 @@ animate.setup({
   close = { enable = true },
 })
 
-_G.PluginKeymaps.animate = function()
-end
+_G.PluginKeymaps.animate = function() end

@@ -1,19 +1,19 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-lualine/lualine.nvim' },
+  { src = "https://github.com/nvim-lualine/lualine.nvim" },
 })
 
-local lualine = require 'lualine'
-local colors = require 'themes.gruvbox.material.colors'
-local theme = require 'themes.gruvbox.material.lualine'
+local lualine = require("lualine")
+local colors = require("themes.gruvbox.material.colors")
+local theme = require("themes.gruvbox.material.lualine")
 
 local set_statusline_highlights = function()
-  vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
-  vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
+  vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+  vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
 end
 
 set_statusline_highlights()
 
-vim.api.nvim_create_autocmd('Colorscheme', {
+vim.api.nvim_create_autocmd("Colorscheme", {
   callback = set_statusline_highlights,
 })
 
@@ -21,8 +21,8 @@ lualine.setup({
   options = {
     icons_enabled = true,
     theme = theme,
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { statusline = {}, winbar = {} },
     ignore_focus = {},
     always_divide_middle = true,
@@ -32,76 +32,81 @@ lualine.setup({
   sections = {
     lualine_a = {
       {
-        'mode',
-        icon = '󰚩',
-        fmt = function(str) return str:lower() end,
+        "mode",
+        icon = "󰚩",
+        fmt = function(str)
+          return str:lower()
+        end,
       },
     },
     lualine_b = {
       {
-        function() return '' end,
+        function()
+          return ""
+        end,
         color = { bg = colors.none, fg = colors.white },
         padding = 0,
       },
       {
-        'branch',
-        icon = '',
+        "branch",
+        icon = "",
         color = { bg = colors.purple },
-        separator = { left = '', right = '' },
+        separator = { left = "", right = "" },
       },
     },
     lualine_c = {
       {
-        function() return '' end,
+        function()
+          return ""
+        end,
         padding = 0,
-        separator = '',
+        separator = "",
       },
       {
-        'filename',
-        path = 1,
-        separator = '',
+        "filename",
+        path = 4,
+        separator = "",
       },
       {
-        'diagnostics',
+        "diagnostics",
         sources = {
-          'nvim_lsp',
-          'nvim_diagnostic',
-          'nvim_workspace_diagnostic',
-          'coc',
-          'ale',
-          'vim_lsp',
+          "nvim_lsp",
+          "nvim_diagnostic",
+          "nvim_workspace_diagnostic",
         },
       },
     },
     lualine_x = {
       {
-        'filetype',
+        "filetype",
         colored = false,
         icon_only = false,
-        separator = '',
+        separator = "",
       },
       {
-        'encoding',
-        separator = '',
+        "encoding",
+        separator = "",
       },
       {
-        'fileformat',
-        separator = '',
+        "fileformat",
+        separator = "",
         symbols = {
-          unix = 'unix',
-          doc = 'doc',
-          mac = 'mac',
+          unix = "unix",
+          doc = "doc",
+          mac = "mac",
         },
       },
       {
-        function() return '' end,
+        function()
+          return ""
+        end,
         color = { bg = colors.none, fg = colors.white },
         padding = 0,
       },
     },
     lualine_y = {
       {
-        'location',
+        "location",
         color = { bg = colors.purple },
       },
     },
@@ -110,8 +115,8 @@ lualine.setup({
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'location' },
+    lualine_c = { "filename" },
+    lualine_x = { "location" },
     lualine_y = {},
     lualine_z = {},
   },
@@ -121,5 +126,4 @@ lualine.setup({
   extensions = {},
 })
 
-_G.PluginKeymaps.lualine = function()
-end
+_G.PluginKeymaps.lualine = function() end

@@ -38,7 +38,7 @@ cokeline.setup({
   },
   components = {
     {
-      text = function(buf) return (!buf.is_first and buf.is_focused) and '' or '' end,
+      text = function(buf) return (! buf.is_first and buf.is_focused) and '' or '' end,
       fg = function(buf) return buf.is_focused and colors.white or colors.none end,
       bg = colors.none,
     },

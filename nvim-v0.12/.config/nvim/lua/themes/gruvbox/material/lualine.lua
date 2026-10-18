@@ -1,4 +1,4 @@
-local colors = require 'themes.gruvbox.material.colors'
+local colors = require("themes.gruvbox.material.colors")
 
 local theme = {}
 

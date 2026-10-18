@@ -1,27 +1,27 @@
 vim.pack.add({
-  { src = 'https://github.com/saghen/blink.lib' },
-  { src = 'https://github.com/saghen/blink.cmp' },
+  { src = "https://github.com/saghen/blink.lib" },
+  { src = "https://github.com/saghen/blink.cmp" },
 })
 
-local cmp = require 'blink.cmp'
+local cmp = require("blink.cmp")
 
 cmp.build():pwait()
 cmp.setup({
   keymap = {
-    preset = 'default',
-    ['<Tab>'] = { 'select_next', 'fallback' },
-    ['<S-Tab>'] = { 'select_prev', 'fallback' },
-    -- ['<CR>'] = { 'select_and_accept' },
+    preset = "none",
+    ["<Tab>"] = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "select_prev", "fallback" },
+    ["<CR>"] = { "select_and_accept", "fallback" },
   },
   completion = {
     documentation = {
       auto_show = true,
     },
     menu = {
-      auto_show = false,
+      auto_show = true,
     },
     keyword = {
-      range = 'full',
+      range = "full",
     },
     accept = {
       auto_brackets = {
@@ -31,7 +31,7 @@ cmp.setup({
     list = {
       selection = {
         preselect = false,
-        auto_insert = true,
+        auto_insert = false,
       },
     },
     ghost_text = {
@@ -40,16 +40,15 @@ cmp.setup({
   },
   sources = {
     default = {
-      'lsp',
-      'path',
-      'snippets',
-      'buffer',
+      "lsp",
+      "path",
+      "snippets",
+      "buffer",
     },
   },
   fuzzy = {
-    implementation = 'prefer_rust_with_warning',
+    implementation = "prefer_rust_with_warning",
   },
 })
 
-_G.PluginKeymaps.completion = function()
-end
+_G.PluginKeymaps.completion = function() end

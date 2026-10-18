@@ -6,19 +6,19 @@ _G.Helpers = {}
 
 -- get highlight group attributes
 _G.Helpers.get_hl_hex = function(name)
-  local hl = vim.api.nvim_get_hl(0, { name = name,  link = true })
+  local hl = vim.api.nvim_get_hl(0, { name = name, link = true })
   local colors = {}
 
   if hl.fg then
     colors.fg = string.format("#%06x", hl.fg)
   else
-    colors.fg = 'NONE'
+    colors.fg = "NONE"
   end
 
   if hl.bg then
     colors.bg = string.format("#%06x", hl.bg)
   else
-    colors.bg = 'NONE'
+    colors.bg = "NONE"
   end
 
   return colors
@@ -46,25 +46,24 @@ _G.Helpers.clean_pack = function()
   end
 
   -- Prompt for confirmation before purging
-  local choice = vim.fn.confirm('Remove inactive plugins?', '&Yes\n&No', 2)
+  local choice = vim.fn.confirm("Remove inactive plugins?", "&Yes\n&No", 2)
   if choice == 1 then
     vim.pack.del(unused_plugins)
   end
 end
 
 _G.Helpers.toggle_undo_tree = function()
-  vim.cmd('packadd nvim.undotree')
-  vim.cmd('Undotree')
+  vim.cmd("packadd nvim.undotree")
+  vim.cmd("Undotree")
 end
 
 -- FIXME make this useful for managing plugins
 _G.Helpers.open_command_in_float = function(cmd)
-
   -- Run the command and capture its text output
   local output = vim.fn.execute(cmd)
 
   -- Split the raw string output by newlines into an array of lines
-  local lines = vim.split(output, '\n', { trimempty = true })
+  local lines = vim.split(output, "\n", { trimempty = true })
 
   -- Get the dimensions of the current editor grid
   local stats = vim.api.nvim_list_uis()[1]
@@ -81,13 +80,13 @@ _G.Helpers.open_command_in_float = function(cmd)
 
   -- Set the window configuration options
   local opts = {
-    relative = 'editor',
+    relative = "editor",
     width = width,
     height = height,
     row = row,
     col = col,
-    style = 'minimal',
-    border = 'single',
+    style = "minimal",
+    border = "single",
   }
 
   -- Create an unlisted 'scratch' buffer for content
@@ -103,12 +102,22 @@ _G.Helpers.open_command_in_float = function(cmd)
 
   -- Set a buffer-local keymap to easily close the window with 'q' or 'Esc'
   local map_opts = { buffer = buf, silent = true }
-  vim.keymap.set('n', 'q', function() vim.api.nvim_win_close(win, true) end, map_opts)
-  vim.keymap.set('n', '<esc>', function() vim.api.nvim_win_close(win, true) end, map_opts)
+  vim.keymap.set("n", "q", function()
+    vim.api.nvim_win_close(win, true)
+  end, map_opts)
+  vim.keymap.set("n", "<esc>", function()
+    vim.api.nvim_win_close(win, true)
+  end, map_opts)
 end
 
 _G.PluginKeymaps.helpers = function()
-  vim.keymap.set('n', '<leader>pu', vim.pack.update, { desc = 'Update plugins' })
-  vim.keymap.set('n', '<leader>pc', _G.Helpers.clean_pack, { desc = 'Remove inactive plugins' })
-  vim.keymap.set('n', '<leader>u', _G.Helpers.toggle_undo_tree, { desc = 'Toggle built-in Undotree' })
+  vim.keymap.set("n", "<leader>pu", vim.pack.update, {
+    desc = "Pack: Update plugins",
+  })
+  vim.keymap.set("n", "<leader>pc", _G.Helpers.clean_pack, {
+    desc = "Pack: Remove inactive plugins",
+  })
+  vim.keymap.set("n", "<leader>u", _G.Helpers.toggle_undo_tree, {
+    desc = "Toggle built-in Undotree",
+  })
 end

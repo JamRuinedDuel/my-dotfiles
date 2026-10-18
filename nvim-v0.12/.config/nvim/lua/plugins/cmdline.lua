@@ -1,8 +1,8 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-mini/mini.cmdline', version = 'main' },
+  { src = "https://github.com/nvim-mini/mini.cmdline", version = "main" },
 })
 
-local cmdline = require 'mini.cmdline'
+local cmdline = require("mini.cmdline")
 
 cmdline.setup({
   autocomplete = {
@@ -19,5 +19,4 @@ cmdline.setup({
   },
 })
 
-_G.PluginKeymaps.cmdline = function()
-end
+_G.PluginKeymaps.cmdline = function() end

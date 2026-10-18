@@ -1,14 +1,13 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-mini/mini.icons', version = 'main' },
+  { src = "https://github.com/nvim-mini/mini.icons", version = "main" },
 })
 
-local icons = require('mini.icons')
+local icons = require("mini.icons")
 
 icons.setup({
-  style = 'glyph',
+  style = "glyph",
 })
 
 icons.mock_nvim_web_devicons()
 
-_G.PluginKeymaps.icons = function()
-end
+_G.PluginKeymaps.icons = function() end

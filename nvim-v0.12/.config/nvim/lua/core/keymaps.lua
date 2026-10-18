@@ -1,17 +1,17 @@
 -- define global keymaps
-vim.keymap.set('n', '<esc>', vim.cmd.nohlsearch, { desc = 'Clear search highlights' })
-vim.keymap.set('i', 'jk', '<esc>', { desc = 'Exit insert mode' })
+vim.keymap.set("n", "<esc>", vim.cmd.nohlsearch, { desc = "Clear search highlights" })
+vim.keymap.set("i", "jk", "<esc>", { desc = "Exit insert mode" })
 -- Buffer movements
-vim.keymap.set('n', 'H', vim.cmd.bprevious, { desc = 'Go to previous buffer' })
-vim.keymap.set('n', '<leader>bh', vim.cmd.bprevious, { desc = 'Go to previous buffer' })
-vim.keymap.set('n', 'L', vim.cmd.bnext, { desc = 'Go to next buffer' })
-vim.keymap.set('n', '<leader>bl', vim.cmd.bnext, { desc = 'Go to next buffer' })
-vim.keymap.set('n', '<leader>bd', vim.cmd.bdelete, { desc = 'Close current buffer' })
+vim.keymap.set("n", "H", vim.cmd.bprevious, { desc = "Go to previous buffer" })
+vim.keymap.set("n", "<leader>bh", vim.cmd.bprevious, { desc = "Go to previous buffer" })
+vim.keymap.set("n", "L", vim.cmd.bnext, { desc = "Go to next buffer" })
+vim.keymap.set("n", "<leader>bl", vim.cmd.bnext, { desc = "Go to next buffer" })
+vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete, { desc = "Close current buffer" })
 -- Split movements
-vim.keymap.set('n', '<leader>wh', '<C-w>h', { desc = 'Move to left split' })
-vim.keymap.set('n', '<leader>wj', '<C-w>j', { desc = 'Move to bottom split' })
-vim.keymap.set('n', '<leader>wk', '<C-w>k', { desc = 'Move to top split' })
-vim.keymap.set('n', '<leader>wl', '<C-w>l', { desc = 'Move to right split' })
+vim.keymap.set("n", "<leader>wh", "<C-w>h", { desc = "Move to left split" })
+vim.keymap.set("n", "<leader>wj", "<C-w>j", { desc = "Move to bottom split" })
+vim.keymap.set("n", "<leader>wk", "<C-w>k", { desc = "Move to top split" })
+vim.keymap.set("n", "<leader>wl", "<C-w>l", { desc = "Move to right split" })
 
 -- WARN: Do not modify!
 -- load all registered plugin keymaps
@@ -24,4 +24,3 @@ if _G.PluginKeymaps then
     end
   end
 end
-

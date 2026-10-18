@@ -1,6 +1,6 @@
 -- leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local opt = vim.opt
 
@@ -9,9 +9,9 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 opt.smartindent = true
-opt.backspace = 'indent,eol,start'
+opt.backspace = "indent,eol,start"
 opt.list = true
-opt.listchars = { space = '·' }
+opt.listchars = { space = "·" }
 opt.wrap = false
 opt.linebreak = false
 
@@ -22,14 +22,14 @@ opt.incsearch = true
 
 opt.number = true
 opt.relativenumber = false
-opt.signcolumn = 'yes:1'
-opt.colorcolumn = ''
+opt.signcolumn = "yes:1"
+opt.colorcolumn = ""
 opt.laststatus = 3
 opt.showmode = false
 
 opt.autocomplete = true
 opt.autocompletedelay = 50
-opt.clipboard:append('unnamedplus')
+opt.clipboard:append("unnamedplus")
 
 opt.splitright = true
 opt.splitbelow = true

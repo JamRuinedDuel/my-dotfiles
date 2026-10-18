@@ -1,10 +1,9 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-mini/mini.pairs', version = 'main' },
+  { src = "https://github.com/nvim-mini/mini.pairs", version = "main" },
 })
 
-local pairs = require 'mini.pairs'
+local pairs = require("mini.pairs")
 
 pairs.setup()
 
-_G.PluginKeymaps.pairs = function()
-end
+_G.PluginKeymaps.pairs = function() end

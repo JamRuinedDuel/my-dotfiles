@@ -1,28 +1,28 @@
-require 'core.helpers'
-require 'core.options'
+require("core.helpers")
+require("core.options")
 
-require 'plugins.icons'
-require 'plugins.colorscheme'
+require("plugins.icons")
+require("plugins.colorscheme")
 
-require 'plugins.ia'
-require 'plugins.surround'
-require 'plugins.pairs'
-require 'plugins.move'
-require 'plugins.diff'
-require 'plugins.hipatterns'
+require("plugins.ia")
+require("plugins.surround")
+require("plugins.pairs")
+require("plugins.move")
+require("plugins.diff")
+require("plugins.hipatterns")
 
-require 'plugins.files'
-require 'plugins.cmdline'
-require 'plugins.pick'
-require 'plugins.lualine'
-require 'plugins.bufferline'
-require 'plugins.cursorword'
-require 'plugins.animate'
+require("plugins.files")
+require("plugins.cmdline")
+require("plugins.pick")
+require("plugins.lualine")
+require("plugins.bufferline")
+require("plugins.cursorword")
+require("plugins.animate")
 
-require 'plugins.vim-tmux-navigator'
+require("plugins.vim-tmux-navigator")
 
-require 'plugins.lspconfig'
-require 'plugins.completion'
+require("plugins.lspconfig")
+require("plugins.completion")
 
-require 'plugins.clue'
-require 'core.keymaps'
+require("plugins.clue")
+require("core.keymaps")
