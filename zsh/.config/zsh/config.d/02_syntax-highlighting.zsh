@@ -14,4 +14,3 @@ fi
 ZSH_SYN_HIGH_SCRIPT="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 [ -f "$ZSH_SYN_HIGH_SCRIPT" ] && source "$ZSH_SYN_HIGH_SCRIPT"
 
-
