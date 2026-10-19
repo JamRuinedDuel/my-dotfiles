@@ -8,10 +8,10 @@ local cmp = require("blink.cmp")
 cmp.build():pwait()
 cmp.setup({
   keymap = {
-    preset = "none",
+    preset = "default",
     ["<Tab>"] = { "select_next", "fallback" },
     ["<S-Tab>"] = { "select_prev", "fallback" },
-    ["<CR>"] = { "select_and_accept", "fallback" },
+    ["<CR>"] = { "accept", "fallback" },
   },
   completion = {
     documentation = {

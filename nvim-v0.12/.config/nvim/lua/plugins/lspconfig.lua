@@ -25,8 +25,17 @@ mason.setup({
 mason_lspconfig.setup()
 mason_tool_installer.setup({
   ensure_installed = {
-    "lua_ls",
+    "basics-language-server",
+    "clangd",
+    "editorconfig-checker",
+    "jdtls",
+    "json-lsp",
+    "lua-language-server",
+    "shfmt",
     "stylua",
+    "taplo",
+    "typos-lsp",
+    "yaml-language-server",
   },
 })
 

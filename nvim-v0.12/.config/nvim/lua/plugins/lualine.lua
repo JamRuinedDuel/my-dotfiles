@@ -64,7 +64,7 @@ lualine.setup({
       },
       {
         "filename",
-        path = 4,
+        path = 0,
         separator = "",
       },
       {
