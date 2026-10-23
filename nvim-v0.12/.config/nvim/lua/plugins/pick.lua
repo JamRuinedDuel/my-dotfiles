@@ -1,5 +1,5 @@
 vim.pack.add({
-  { src = "https://github.com/nvim-mini/mini.pick", version = "main" },
+  { src = "https://github.com/nvim-mini/mini.pick",  version = "main" },
   { src = "https://github.com/nvim-mini/mini.extra", version = "main" },
 })
 

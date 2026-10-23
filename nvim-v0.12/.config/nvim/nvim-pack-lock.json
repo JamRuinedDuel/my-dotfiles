@@ -1,12 +1,20 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "6b4b40a785a9f61885e1f550423b2559138f3ef3",
+      "rev": "b72ed05dd452690181837d484984144a64709f17",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
       "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
       "src": "https://github.com/saghen/blink.lib"
+    },
+    "csvview.nvim": {
+      "rev": "f190de76d2eca0380ddcb2425cd582d740699b55",
+      "src": "https://github.com/hat0uma/csvview.nvim"
+    },
+    "fd": {
+      "rev": "9e904639aee44df4507200cf0ed5e8531e120d6f",
+      "src": "https://github.com/sharkdp/fd"
     },
     "gruvbox-material": {
       "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
@@ -21,7 +29,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "00b5473cca4db5b410ff4bae724e3b6e21f2687f",
+      "rev": "c4ef013d41f6db041b283eef55a63e579d76763f",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -38,43 +46,43 @@
       "version": "'main'"
     },
     "mini.animate": {
-      "rev": "6cf2bc01dd074d4b2ec606b40ea3c7c9f1dc99cc",
+      "rev": "ed7d4a2a6fac1777e6da1446127eea87dd2419b5",
       "src": "https://github.com/nvim-mini/mini.animate",
       "version": "'main'"
     },
-    "mini.cmdline": {
-      "rev": "1006a386ab8e6d3c4567fddd31cd9d47b3cb63ba",
-      "src": "https://github.com/nvim-mini/mini.cmdline",
-      "version": "'main'"
-    },
     "mini.cursorword": {
-      "rev": "643e21d31210d1293ba70d60e7edc45dfcca518e",
+      "rev": "1600b99d6adab31e7ab3c231111100dbbcefad58",
       "src": "https://github.com/nvim-mini/mini.cursorword",
       "version": "'main'"
     },
     "mini.diff": {
-      "rev": "ce542d15eacf068f81f5e516da7d486db808c559",
+      "rev": "47ab8cf21c62cfd952008f2b9e79417c98173ec1",
       "src": "https://github.com/nvim-mini/mini.diff",
       "version": "'main'"
     },
     "mini.extra": {
-      "rev": "7dcc3ee5ba638cca654125f40f6e3ffbc52e0dc4",
+      "rev": "6cbc59d875a9768819091d0a56223205022cbe72",
       "src": "https://github.com/nvim-mini/mini.extra",
       "version": "'main'"
     },
     "mini.files": {
-      "rev": "3fe8e33d37a8c455762800c39bab9af317dd53b4",
+      "rev": "638b80cb985c89ca2a98eed72c552c8d485a3d5b",
       "src": "https://github.com/nvim-mini/mini.files",
       "version": "'main'"
     },
     "mini.hipatterns": {
-      "rev": "8e18b4970f21be0db157104786d2be43058cdd44",
+      "rev": "247c0173579a29af60f25f00671a75c57090be9c",
       "src": "https://github.com/nvim-mini/mini.hipatterns",
       "version": "'main'"
     },
     "mini.icons": {
-      "rev": "f916635dc5ae2f479fbb9ab8184bb9444b62e86c",
+      "rev": "9e4c1645ce2b78afd6191b6be2c38bc0f998dd48",
       "src": "https://github.com/nvim-mini/mini.icons",
+      "version": "'main'"
+    },
+    "mini.indentscope": {
+      "rev": "f75e6e4d560641cbb42e97182819af0175bdfe0e",
+      "src": "https://github.com/nvim-mini/mini.indentscope",
       "version": "'main'"
     },
     "mini.move": {
@@ -88,7 +96,7 @@
       "version": "'main'"
     },
     "mini.pick": {
-      "rev": "7cb8fd34bde460986e5e39e9539a9f992ec9772e",
+      "rev": "9368112b7cafb61d837bed55fc6f40e55df53fa0",
       "src": "https://github.com/nvim-mini/mini.pick",
       "version": "'main'"
     },
@@ -102,8 +110,28 @@
       "src": "https://github.com/willothy/nvim-cokeline"
     },
     "nvim-lspconfig": {
-      "rev": "45a3a444b710511c39abca3b60bb6e23a21e3de5",
+      "rev": "77b7432d4770d23b277d37923e5a08a442d8bb07",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "ripgrep": {
+      "rev": "3fce3b5bb0236da2df6d99672afb8a719642eca7",
+      "src": "https://github.com/BurntSushi/ripgrep"
+    },
+    "sc-im.nvim": {
+      "rev": "73f0d7086a73aafe1a2dd5a83c5a12e252be3526",
+      "src": "https://github.com/DAmesberger/sc-im.nvim"
+    },
+    "telescope-fzf-native.nvim": {
+      "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "vim-tmux-navigator": {
       "rev": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432",

@@ -3,10 +3,16 @@ vim.pack.add({
   { src = "https://github.com/saghen/blink.cmp" },
 })
 
+vim.opt.autocomplete = false
+
 local cmp = require("blink.cmp")
 
 cmp.build():pwait()
+
 cmp.setup({
+  enabled = function()
+    return vim.bo.filetype ~= "minifiles"
+  end,
   keymap = {
     preset = "default",
     ["<Tab>"] = { "select_next", "fallback" },
@@ -16,12 +22,23 @@ cmp.setup({
   completion = {
     documentation = {
       auto_show = true,
+      auto_show_delay_ms = 100,
+      window = {
+        border = "single",
+      },
     },
     menu = {
       auto_show = true,
+      border = "none",
+      draw = {
+        columns = {
+          { "label",     "label_description", gap = 1 },
+          { "kind_icon", "kind" },
+        },
+      },
     },
     keyword = {
-      range = "full",
+      range = "prefix",
     },
     accept = {
       auto_brackets = {
@@ -35,7 +52,7 @@ cmp.setup({
       },
     },
     ghost_text = {
-      enabled = true,
+      enabled = false,
     },
   },
   sources = {
@@ -44,10 +61,15 @@ cmp.setup({
       "path",
       "snippets",
       "buffer",
+      "cmdline",
+      "omni",
     },
   },
   fuzzy = {
     implementation = "prefer_rust_with_warning",
+  },
+  signature = {
+    enabled = true,
   },
 })
 

@@ -16,7 +16,7 @@ vim.g.gruvbox_material_disable_italic_comment = 1
 vim.g.gruvbox_material_enable_bold = 1
 vim.g.gruvbox_material_enable_italic = 0
 vim.g.gruvbox_material_cursor = "auto"
-vim.g.gruvbox_material_transparent_background = 2
+vim.g.gruvbox_material_transparent_background = 1
 vim.g.gruvbox_material_dim_inactive_windows = 1
 vim.g.gruvbox_material_visual = "grey background"
 vim.g.gruvbox_material_menu_selection_background = "grey"
@@ -42,7 +42,7 @@ end
 
 set_separator_highlights()
 
-vim.api.nvim_create_autocmd("Colorscheme", {
+vim.api.nvim_create_autocmd("ColorScheme", {
   callback = set_separator_highlights,
 })
 
