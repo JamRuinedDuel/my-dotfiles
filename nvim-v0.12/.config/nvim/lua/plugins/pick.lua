@@ -1,67 +1,110 @@
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = vim.api.nvim_create_augroup("VimPackHooks", { clear = true }),
+  callback = function(ev)
+    if ev.data.spec.name ~= "telescope-fzf-native.nvim" then
+      return
+    end
+    if ev.data.kind ~= "install" and ev.data.kind ~= "update" then
+      return
+    end
+
+    vim.notify("Compiling telescope-fzf-native...", vim.log.levels.INFO)
+    vim.system({ "make" }, { cwd = ev.data.path }, function(obj)
+      if obj.code == 0 then
+        vim.schedule(function()
+          vim.notify("telescope-fzf-native compiled successfully!", vim.log.levels.INFO)
+        end)
+      else
+        vim.schedule(function()
+          vim.notify("Failed to compile telescope-fzf-native:\n" .. obj.stderr, vim.log.levels.ERROR)
+        end)
+      end
+    end)
+  end,
+})
+
 vim.pack.add({
-  { src = "https://github.com/nvim-mini/mini.pick",  version = "main" },
-  { src = "https://github.com/nvim-mini/mini.extra", version = "main" },
+  { src = "https://github.com/BurntSushi/ripgrep" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
 })
 
-local pick = require("mini.pick")
-local extra = require("mini.extra")
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
 
-pick.setup({
-  options = {
-    content_from_bottom = true,
-    use_cache = false,
+telescope.setup({
+  defaults = {
+    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
   },
-  window = {
-    prompt_caret = "▂",
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
   },
 })
 
-extra.setup({})
+telescope.load_extension("fzf")
 
 local open_file_picker = function()
-  return pick.builtin.files({
-    tool = "git",
+  return builtin.find_files({
+    hidden = true,
   })
 end
 
 local open_grep_live_picker = function()
-  return pick.builtin.grep_live({
-    tool = "git",
-    globs = {},
-    method = "plain",
+  return builtin.live_grep({
+    hidden = true,
   })
 end
 
 local open_buffer_picker = function()
-  return pick.builtin.buffers({
-    include_current = true,
-    include_unlisted = true,
-  })
+  return builtin.buffers()
 end
 
 local open_help_picker = function()
-  return pick.builtin.help({
-    default_split = "tab",
-  })
+  return builtin.help_tags()
 end
 
 local open_diagnostics_picker = function()
-  return extra.pickers.diagnostic({})
+  return builtin.diagnostics()
+end
+
+local open_quickfix_picker = function()
+  return builtin.quickfix()
 end
 
 local open_colorschemes_picker = function()
-  return extra.pickers.colorschemes({})
+  return builtin.colorscheme({
+    enable_preview = true,
+    ignore_builtins = false,
+  })
 end
 
 local open_manpages_picker = function()
-  return extra.pickers.manpages({})
+  return builtin.man_pages()
 end
 
-local open_git_hunks_picker = function()
-  return extra.pickers.git_hunks({})
+local open_git_commits_picker = function()
+  return builtin.git_commits({
+    git_command = {
+      "git",
+      "log",
+      "--oneline",
+      "--abbrev-commit",
+      "--",
+      ".",
+    },
+  })
 end
 
 _G.PluginKeymaps.pick = function()
+  vim.keymap.set("n", "<leader><leader>g", open_git_commits_picker, {
+    desc = "Open Git history",
+  })
   vim.keymap.set("n", "<leader><leader>f", open_file_picker, {
     desc = "Open file picker",
   })
@@ -83,7 +126,7 @@ _G.PluginKeymaps.pick = function()
   vim.keymap.set("n", "<leader><leader>m", open_manpages_picker, {
     desc = "Open manpages picker",
   })
-  vim.keymap.set("n", "<leader><leader>g", open_git_hunks_picker, {
-    desc = "Open git hunks picker",
+  vim.keymap.set("n", "<leader><leader>q", open_quickfix_picker, {
+    desc = "Open quick fix picker",
   })
 end

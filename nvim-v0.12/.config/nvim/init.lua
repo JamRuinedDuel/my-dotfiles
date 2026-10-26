@@ -25,5 +25,7 @@ require("plugins.vim-tmux-navigator")
 require("plugins.lspconfig")
 require("plugins.completion")
 
+require("plugins.presentation")
+
 require("plugins.clue")
 require("core.keymaps")

@@ -13,7 +13,7 @@ end
 
 set_statusline_highlights()
 
-vim.api.nvim_create_autocmd("Colorscheme", {
+vim.api.nvim_create_autocmd("ColorScheme", {
   callback = set_statusline_highlights,
 })
 
@@ -70,8 +70,8 @@ lualine.setup({
       {
         "diagnostics",
         sources = {
-          "nvim_lsp",
-          "nvim_diagnostic",
+          -- "nvim_lsp",
+          -- "nvim_diagnostic",
           "nvim_workspace_diagnostic",
         },
       },

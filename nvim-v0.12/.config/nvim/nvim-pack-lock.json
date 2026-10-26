@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "b72ed05dd452690181837d484984144a64709f17",
+      "rev": "f50d952de478b554d89bcca058691a69cb5681dd",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -12,9 +12,9 @@
       "rev": "f190de76d2eca0380ddcb2425cd582d740699b55",
       "src": "https://github.com/hat0uma/csvview.nvim"
     },
-    "fd": {
-      "rev": "9e904639aee44df4507200cf0ed5e8531e120d6f",
-      "src": "https://github.com/sharkdp/fd"
+    "fzf-lua": {
+      "rev": "507dfc85551ff2d9293ec215f10f19395252aada",
+      "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gruvbox-material": {
       "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
@@ -29,7 +29,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "c4ef013d41f6db041b283eef55a63e579d76763f",
+      "rev": "c302d3fcaf4727ee7d48b20e7c293668ed1f6d98",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -76,7 +76,7 @@
       "version": "'main'"
     },
     "mini.icons": {
-      "rev": "9e4c1645ce2b78afd6191b6be2c38bc0f998dd48",
+      "rev": "eab3e692d796d78ea6ffc978d8a380ff26fcf4e3",
       "src": "https://github.com/nvim-mini/mini.icons",
       "version": "'main'"
     },
@@ -117,13 +117,13 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
-    "ripgrep": {
-      "rev": "3fce3b5bb0236da2df6d99672afb8a719642eca7",
-      "src": "https://github.com/BurntSushi/ripgrep"
+    "presenting.nvim": {
+      "rev": "aa32b58b86fb1467922396f058cd69b1dc85b6e6",
+      "src": "https://github.com/sotte/presenting.nvim"
     },
-    "sc-im.nvim": {
-      "rev": "73f0d7086a73aafe1a2dd5a83c5a12e252be3526",
-      "src": "https://github.com/DAmesberger/sc-im.nvim"
+    "ripgrep": {
+      "rev": "6892bc2b7efe5909cbbeec8f757ed2c4c76b1d30",
+      "src": "https://github.com/BurntSushi/ripgrep"
     },
     "telescope-fzf-native.nvim": {
       "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
