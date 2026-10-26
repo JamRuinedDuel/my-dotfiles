@@ -175,7 +175,7 @@ disabled = true
 
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ](bg:purple fg:black)'
-symbol = ' '
+symbol = ' '
 disabled = false
 
 [git_commit]
