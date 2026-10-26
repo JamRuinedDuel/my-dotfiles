@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "f50d952de478b554d89bcca058691a69cb5681dd",
+      "rev": "1e4cb39b9200950dca1cbc4d630c60c16eb8e7e4",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -11,10 +11,6 @@
     "csvview.nvim": {
       "rev": "f190de76d2eca0380ddcb2425cd582d740699b55",
       "src": "https://github.com/hat0uma/csvview.nvim"
-    },
-    "fzf-lua": {
-      "rev": "507dfc85551ff2d9293ec215f10f19395252aada",
-      "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gruvbox-material": {
       "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
@@ -29,7 +25,7 @@
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "c302d3fcaf4727ee7d48b20e7c293668ed1f6d98",
+      "rev": "a338f44149f5673882c32629697d67b0c0547aec",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason-tool-installer.nvim": {
@@ -95,11 +91,6 @@
       "src": "https://github.com/nvim-mini/mini.pairs",
       "version": "'main'"
     },
-    "mini.pick": {
-      "rev": "9368112b7cafb61d837bed55fc6f40e55df53fa0",
-      "src": "https://github.com/nvim-mini/mini.pick",
-      "version": "'main'"
-    },
     "mini.surround": {
       "rev": "59ce0acf79e1d930756ef3a7cb4c2369560cf548",
       "src": "https://github.com/nvim-mini/mini.surround",
@@ -118,7 +109,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "presenting.nvim": {
-      "rev": "aa32b58b86fb1467922396f058cd69b1dc85b6e6",
+      "rev": "1b3cbf2ad1b1684a80f42bee368f2f1848aef6d3",
       "src": "https://github.com/sotte/presenting.nvim"
     },
     "ripgrep": {
