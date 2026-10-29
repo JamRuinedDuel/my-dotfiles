@@ -1,0 +1,38 @@
+---@class (exact) ColorPalette
+---@field none string
+---@field black string
+---@field gray string
+---@field white string
+---@field red string
+---@field yellow string
+---@field green string
+---@field cyan string
+---@field blue string
+---@field magenta string
+---@field bright_black string
+---@field bright_gray string
+---@field bright_white string
+---@field bright_red string
+---@field bright_yellow string
+---@field bright_green string
+---@field bright_cyan string
+---@field bright_blue string
+---@field bright_magenta string
+
+---@class LualineThemeHighlightGroup
+---@field bg? string background color
+---@field fg? string foreground color
+---@field gui? string font style
+
+---@class LualineThemeMode
+---@field a? LualineThemeHighlightGroup lualine A section
+---@field b? LualineThemeHighlightGroup lualine B section
+---@field c? LualineThemeHighlightGroup lualine C section
+
+---@class LualineTheme
+---@field normal? LualineThemeMode lualine normal mode
+---@field insert? LualineThemeMode lualine insert mode
+---@field visual? LualineThemeMode lualine visual mode
+---@field replace? LualineThemeMode lualine replace mode
+---@field command? LualineThemeMode lualine command mode
+---@field inactive? LualineThemeMode lualine inactive mode
