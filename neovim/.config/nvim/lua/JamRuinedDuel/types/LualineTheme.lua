@@ -1,0 +1,7 @@
+---@class LualineTheme
+---@field normal? LualineThemeMode lualine normal mode
+---@field insert? LualineThemeMode lualine insert mode
+---@field visual? LualineThemeMode lualine visual mode
+---@field replace? LualineThemeMode lualine replace mode
+---@field command? LualineThemeMode lualine command mode
+---@field inactive? LualineThemeMode lualine inactive mode
