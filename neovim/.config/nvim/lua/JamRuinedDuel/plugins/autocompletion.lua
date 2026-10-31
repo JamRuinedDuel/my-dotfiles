@@ -13,7 +13,7 @@ vim.opt.autocomplete = false
 
 local cmp = require("blink.cmp")
 
-cmp.build()
+cmp.build():pwait()
 
 cmp.setup({
   enabled = function()

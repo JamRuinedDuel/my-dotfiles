@@ -7,6 +7,10 @@ vim.pack.add({
     src = "https://github.com/sainnhe/everforest",
     version = "master",
   },
+  {
+    src = "https://github.com/projekt0n/github-nvim-theme",
+    version = "main",
+  },
 })
 
 -- UI related configurations
