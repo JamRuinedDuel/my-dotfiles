@@ -65,9 +65,18 @@ vim.g.everforest_disable_terminal_colors = 0
 vim.g.everforest_statusline_style = "default"
 vim.g.everforest_better_performance = 0
 
+local github_theme = require("github-theme")
+
+github_theme.setup({
+  options = {
+    transparent = true,
+  },
+})
+
 -- Set colorscheme
-vim.cmd.colorscheme("gruvbox-material")
+-- vim.cmd.colorscheme("gruvbox-material")
 -- vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("github_dark_default")
 
 local set_separator_highlights = function()
   ---@type boolean, ColorPalette
