@@ -1,11 +1,12 @@
-font-family = Iosevka Term Extended
+font-family = Fira Code
 font-size = 16
 font-synthetic-style = true
 
 adjust-cell-width = 0
 adjust-cell-height = 0
 
-theme = Gruvbox Material Dark
+# theme = Gruvbox Material Dark
+theme = Github Dark Default
 
 selection-clear-on-typing = true
 selection-clear-on-copy = true
@@ -14,7 +15,7 @@ cursor-opacity = 1
 cursor-style = block
 cursor-style-blink = true
 
-background-opacity = 0.9
+background-opacity = 0.8
 background-opacity-cells = false
 background-blur = true
 
