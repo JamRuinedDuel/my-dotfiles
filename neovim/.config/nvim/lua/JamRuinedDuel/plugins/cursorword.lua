@@ -1,8 +1,7 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.cursorword",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.cursorword"),
 })
 
 local cursorword = require("mini.cursorword")
@@ -10,5 +9,3 @@ local cursorword = require("mini.cursorword")
 cursorword.setup({
   delay = 100,
 })
-
-_G.Keymaps.cursorword = function() end

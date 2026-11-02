@@ -1,12 +1,9 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.pairs",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.pairs"),
 })
 
 local pairs = require("mini.pairs")
 
 pairs.setup()
-
-_G.Keymaps.pairs = function() end

@@ -1,12 +1,8 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.ai",
-    version = "main",
-  },
-  {
-    src = "https://github.com/nvim-mini/mini.extra",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.ai"),
+  pack.gh("nvim-mini/mini.extra"),
 })
 
 local ai = require("mini.ai")
@@ -35,5 +31,3 @@ ai.setup({
   search_method = "cover_or_next",
   silent = false,
 })
-
-_G.Keymaps.around_inside_extension = function() end

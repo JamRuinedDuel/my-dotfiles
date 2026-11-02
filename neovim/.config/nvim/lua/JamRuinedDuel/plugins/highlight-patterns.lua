@@ -1,12 +1,8 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.hipatterns",
-    version = "main",
-  },
-  {
-    src = "https://github.com/nvim-mini/mini.extra",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.hipatterns"),
+  pack.gh("nvim-mini/mini.extra"),
 })
 
 local hipatterns = require("mini.hipatterns")
@@ -21,5 +17,3 @@ hipatterns.setup({
     note = hi_words({ " NOTE: ", "NOTE", "Note", "note" }, "MiniHipatternsNote"),
   },
 })
-
-_G.Keymaps.highlight_patterns = function() end

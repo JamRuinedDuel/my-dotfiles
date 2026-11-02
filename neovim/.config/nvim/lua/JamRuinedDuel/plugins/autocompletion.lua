@@ -1,12 +1,8 @@
-vim.pack.add({
-  {
-    src = "https://github.com/saghen/blink.lib",
-    version = "main",
-  },
-  {
-    src = "https://github.com/saghen/blink.cmp",
-    version = "main", -- v2
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("saghen/blink.lib"),
+  pack.gh("saghen/blink.cmp"), -- v2
 })
 
 vim.opt.autocomplete = false
@@ -79,5 +75,3 @@ cmp.setup({
     enabled = false,
   },
 })
-
-_G.Keymaps.autocompletion = function() end

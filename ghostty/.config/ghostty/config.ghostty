@@ -1,12 +1,14 @@
+font-family = Iosevka Slab
 font-family = Fira Code
+font-family = Maple Mono
 font-size = 16
 font-synthetic-style = true
 
-adjust-cell-width = 0
+adjust-cell-width = 1
 adjust-cell-height = 0
 
-# theme = Gruvbox Material Dark
 theme = Github Dark Default
+theme = Gruvbox Material Dark
 
 selection-clear-on-typing = true
 selection-clear-on-copy = true

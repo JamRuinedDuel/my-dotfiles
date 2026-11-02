@@ -1,77 +1,96 @@
-_G.Utils.Pack = {}
+---@meta
+---@module 'jamruinedduel.utils.pack'
 
-_G.Utils.Pack.get_all_plugins = function()
+--- utils/pack.lua
+--- A thin abstraction over the underlying package manager (vim.pack)
+
+local M = {}
+
+--- Helper: safe call + user notification
+---@return boolean, string|nil
+local function safe_call(fn, ...)
+  local ok, err = pcall(fn, ...)
+  if not ok then
+    vim.notify(string.format("[Pack] %s failed: %s", fn, tostring(err)), vim.log.levels.ERROR)
+  end
+  return ok, err
+end
+
+--- Prefixes input string with github repo url prefix
+---@param spec string
+---@return string
+function M.gh(spec)
+  return "https://github.com/" .. spec
+end
+
+--- Return the raw list of plugins as given by the manager.
+---@return table
+function M.list()
   return vim.pack.get()
 end
 
---- Get list of active plugins
-_G.Utils.Pack.get_active_plugins = function()
-  local active_plugins = {}
-  local plugins = _G.Utils.Pack.get_all_plugins()
+--- Install a new plugin specification.
+---@param spec table|table[]|string[]
+---@return boolean, string|nil
+function M.add(spec)
+  if type(spec) ~= "table" then
+    error("Pack.add: spec must be a table (or list of tables)")
+  end
+  return safe_call(vim.pack.add, spec)
+end
 
-  for _, plugin in ipairs(plugins) do
-    if plugin.active then
-      table.insert(active_plugins, plugin.spec.name)
+--- Update a single plugin (or if `name` is nil|empty).
+---@param name? string
+---@return boolean, string|nil
+function M.update(name)
+  if name ~= nil and type(name) ~= "string" then
+    error("Pack.update: name must be a string or nil")
+  end
+  return safe_call(vim.pack.update, name)
+end
+
+--- Update *all* plugins.
+---@return boolean|nil, string|nil
+function M.update_all()
+  return M.update()
+end
+
+--- Remove a plugin by name.
+---@param name string
+---@return boolean, string|nil
+function M.remove(name)
+  assert(type(name) == "string", "Pack.remove: name must be a string")
+  return safe_call(vim.pack.del, name)
+end
+
+--- Delete all inactive plugins.
+---@return boolean
+function M.clean()
+  local inactive = {}
+
+  for _, p in ipairs(M.list()) do
+    if not p.active then
+      table.insert(inactive, p.spec.name)
     end
   end
 
-  return active_plugins
-end
+  if #inactive == 0 then
+    vim.notify("[Pack] No inactive plugins to remove.", vim.log.levels.INFO)
+    return true
+  end
 
---- Get list of inactive plugins
-_G.Utils.Pack.get_inactive_plugins = function()
-  local inactive_plugins = {}
-  local plugins = _G.Utils.Pack.get_all_plugins()
-
-  for _, plugin in ipairs(plugins) do
-    if not plugin.active then
-      table.insert(inactive_plugins, plugin.spec.name)
+  local ok, err = pcall(function()
+    for _, n in ipairs(inactive) do
+      M.remove(n) -- reuse the safe wrapper (already notifies on error)
     end
-  end
+  end)
 
-  return inactive_plugins
-end
-
---- Update plugin
-_G.Utils.Pack.update_plugin = function(name)
-  vim.pack.update(name)
-end
-
-_G.Utils.Pack.update_all_plugins = function()
-  vim.pack.update()
-end
-
---- Remove plugin
-_G.Utils.Pack.remove_plugin = function(name)
-  vim.pack.del(name)
-end
-
-_G.Utils.Pack.clean_plugins = function()
-  local unused_plugins = _G.Utils.Pack.get_inactive_plugins()
-  local success, _ = pcall(_G.Utils.Pack.remove_plugin, unused_plugins)
-
-  if success then
-    vim.notify("Inactive packages (" .. #unused_plugins .. ") has been removed successfully.", vim.log.levels.INFO)
+  if ok then
+    vim.notify(string.format("[Pack] Removed %d inactive plugin(s).", #inactive), vim.log.levels.INFO)
   else
-    vim.notify("Removing inactive packages failed.", vim.log.levels.ERROR)
+    vim.notify("[Pack] Failed to clean inactive plugins: " .. tostring(err), vim.log.levels.ERROR)
   end
+  return ok
 end
 
-_G.Utils.Pack.update_plugins = function()
-  local success, _ = pcall(_G.Utils.Pack.update_all_plugins)
-
-  if success then
-    vim.notify("All packages are up-to-date", vim.log.levels.INFO)
-  else
-    vim.notify("Updating packages failed.", vim.log.levels.ERROR)
-  end
-end
-
-_G.Keymaps.pack = function()
-  vim.keymap.set("n", "<leader>pu", _G.Utils.Pack.update_plugins, {
-    desc = "Pack: update plugins",
-  })
-  vim.keymap.set("n", "<leader>pc", _G.Utils.Pack.clean_plugins, {
-    desc = "Pack: remove unused plugins",
-  })
-end
+return M

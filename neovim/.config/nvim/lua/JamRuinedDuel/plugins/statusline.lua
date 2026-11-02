@@ -1,15 +1,15 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-lualine/lualine.nvim",
-    version = "master",
-  },
+local pack = require("jamruinedduel.utils.pack")
+local color = require("jamruinedduel.utils.color")
+
+pack.add({
+  pack.gh("nvim-lualine/lualine.nvim"),
 })
 
 local lualine = require("lualine")
 
----@type boolean,ColorPalette
-local _, palette = _G.Utils.Color.get_palette()
-local _, theme = _G.Utils.Color.get_lualine_theme()
+---@type boolean, ColorPalette
+local _, palette = color.get_palette()
+local _, theme = color.get_lualine_theme()
 
 local set_statusline_highlights = function()
   vim.api.nvim_set_hl(0, "StatusLine", { bg = palette.none })
@@ -128,5 +128,3 @@ lualine.setup({
   inactive_winbar = {},
   extensions = {},
 })
-
-_G.Keymaps.lualine = function() end

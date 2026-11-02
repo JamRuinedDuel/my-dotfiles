@@ -1,16 +1,10 @@
-vim.pack.add({
-  {
-    src = "https://github.com/sainnhe/gruvbox-material",
-    version = "master",
-  },
-  {
-    src = "https://github.com/sainnhe/everforest",
-    version = "master",
-  },
-  {
-    src = "https://github.com/projekt0n/github-nvim-theme",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+local color = require("jamruinedduel.utils.color")
+
+pack.add({
+  pack.gh("sainnhe/gruvbox-material"),
+  pack.gh("sainnhe/everforest"),
+  pack.gh("projekt0n/github-nvim-theme"),
 })
 
 -- UI related configurations
@@ -74,13 +68,13 @@ github_theme.setup({
 })
 
 -- Set colorscheme
--- vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("gruvbox-material")
 -- vim.cmd.colorscheme("everforest")
-vim.cmd.colorscheme("github_dark_default")
+-- vim.cmd.colorscheme("github_dark_default")
 
 local set_separator_highlights = function()
   ---@type boolean, ColorPalette
-  local _, palette = _G.Utils.Color.get_palette()
+  local _, palette = color.get_palette()
   vim.api.nvim_set_hl(0, "WinSeparator", {
     bg = palette.none,
     fg = palette.gray,
@@ -92,5 +86,3 @@ set_separator_highlights()
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = set_separator_highlights,
 })
-
-_G.Keymaps.colorscheme = function() end

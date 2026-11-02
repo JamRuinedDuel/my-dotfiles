@@ -1,4 +1,0 @@
----@class LualineThemeHighlightGroup
----@field bg? string background color
----@field fg? string foreground color
----@field gui? string font style

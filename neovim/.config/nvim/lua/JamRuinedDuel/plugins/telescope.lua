@@ -1,3 +1,6 @@
+local pack = require("jamruinedduel.utils.pack")
+local km = require("jamruinedduel.keymaps.registry")
+
 vim.api.nvim_create_autocmd("PackChanged", {
   group = vim.api.nvim_create_augroup("VimPackHooks", { clear = true }),
   callback = function(ev)
@@ -23,11 +26,11 @@ vim.api.nvim_create_autocmd("PackChanged", {
   end,
 })
 
-vim.pack.add({
-  { src = "https://github.com/BurntSushi/ripgrep" },
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+pack.add({
+  pack.gh("BurntSushi/ripgrep"),
+  pack.gh("nvim-lua/plenary.nvim"),
+  pack.gh("nvim-telescope/telescope-fzf-native.nvim"),
+  pack.gh("nvim-telescope/telescope.nvim"),
 })
 
 local telescope = require("telescope")
@@ -101,86 +104,7 @@ local open_git_commits_picker = function()
   })
 end
 
-local open_package_picker = function()
-  local pickers = require("telescope.pickers")
-  local finders = require("telescope.finders")
-  local conf = require("telescope.config").values
-  local actions = require("telescope.actions")
-  local entry_display = require("telescope.pickers.entry_display")
-  local pack_mod = require("JamRuinedDuel.utils.pack")
-  local plugins = pack_mod.get_all_plugins()
-  if 0 == plugins then
-    vim.notify("No plugins managed by vim.pack found.", vim.log.levels.INFO)
-  end
-
-  local unused_plugins = pack_mod.get_inactive_plugins()
-
-  local displayer = entry_display.create({
-    separator = " ",
-    items = {
-      { width = 3 },
-      { width = 30 },
-      { remaining = true },
-    },
-  })
-
-  local make_display = function(entry)
-    local status_icon = entry.active and "✔" or "✘"
-    local status_hl = entry.active and "DiagnosticOk" or "DiagnosticError"
-
-    return displayer({
-      { status_icon,                             status_hl },
-      { entry.value,                             "Normal" },
-      { entry.active and "Active" or "Inactive", "Comment" },
-    })
-  end
-
-  pickers
-      .new({}, {
-        prompt_title = "Plugin Manager (vim.pack)",
-        finder = finders.new_table({
-          results = plugins,
-          entry_maker = function(plugin)
-            return {
-              value = plugin.spec.name,
-              display = make_display,
-              ordinal = plugin.spec.name .. (plugin.active and " active" or " inactive"),
-              active = plugin.active,
-            }
-          end,
-        }),
-        sorter = conf.generic_sorter({}),
-        attach_mappings = function(prompt_bufnr, map)
-          -- exit cleanly on basic selection execution
-          actions.select_default:replace(function()
-            actions.close(prompt_bufnr)
-          end)
-
-          local function purge_inactive()
-            if 0 == #unused_plugins then
-              vim.notify("Your configuration is clean! No inactive plugins.", vim.log.levels.INFO)
-              return
-            end
-
-            actions.close(prompt_bufnr)
-
-            local choice = vim.fn.confirm("Remove " .. #unused_plugins .. " inactive plugins from disk?", "&Yes\n&No", 2)
-            if choice == 1 then
-              pack_mod.remove_plugin(unused_plugins)
-              vim.notify("Successfully purged " .. #unused_plugins .. " inactive plugins.", vim.log.levels.INFO)
-            end
-          end
-
-          map("n", "y", purge_inactive)
-          map("n", "<C-p>", purge_inactive)
-
-          return true
-        end,
-      })
-      :find()
-end
-
-_G.Keymaps.telescope = function()
+km.register("telescope", function()
   vim.keymap.set("n", "<leader><leader>g", open_git_commits_picker, {
     desc = "Open Git history",
   })
@@ -208,7 +132,4 @@ _G.Keymaps.telescope = function()
   vim.keymap.set("n", "<leader><leader>q", open_quickfix_picker, {
     desc = "Open quick fix picker",
   })
-  vim.keymap.set("n", "<leader><leader>p", open_package_picker, {
-    desc = "Open package picker",
-  })
-end
+end)

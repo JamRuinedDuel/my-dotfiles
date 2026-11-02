@@ -1,9 +1,12 @@
-vim.pack.add({
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
-  { src = "https://github.com/folke/lazydev.nvim" },
+local pack = require("jamruinedduel.utils.pack")
+local km = require("jamruinedduel.keymaps.registry")
+
+pack.add({
+  pack.gh("neovim/nvim-lspconfig"),
+  pack.gh("mason-org/mason.nvim"),
+  pack.gh("mason-org/mason-lspconfig.nvim"),
+  pack.gh("WhoIsSethDaniel/mason-tool-installer.nvim"),
+  pack.gh("folke/lazydev.nvim"),
 })
 
 vim.diagnostic.config({
@@ -26,6 +29,7 @@ mason_lspconfig.setup()
 mason_tool_installer.setup({
   ensure_installed = {
     "basics-language-server",
+    "bash-language-server",
     "clangd",
     "editorconfig-checker",
     "jdtls",
@@ -40,6 +44,10 @@ mason_tool_installer.setup({
 })
 
 lazydev.setup()
+
+vim.lsp.config["bashls"] = {
+  filetype = { "sh", "bash", "zsh" },
+}
 
 vim.o.updatetime = 250
 
@@ -64,14 +72,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
-_G.Keymaps.lspconfig = function()
-  vim.keymap.set("n", "<leader>lo", "<cmd>Mason<cr>", {
+km.register("lspconfig", function()
+  vim.keymap.set("n", "<leader>lo", vim.cmd.Mason, {
     desc = "Open Mason",
   })
-  vim.keymap.set("n", "<leader>lu", "<cmd>MasonUpdate<cr>", {
+  vim.keymap.set("n", "<leader>lu", vim.cmd.MasonUpdate, {
     desc = "Update Mason libraries",
   })
   vim.keymap.set("n", "<leader>lc", vim.cmd.MasonToolClean, {
     desc = "Clean Mason Tool",
   })
-end
+end)

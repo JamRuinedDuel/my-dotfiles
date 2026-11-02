@@ -1,5 +1,5 @@
 ---@type ColorPalette
-local palette = require("JamRuinedDuel.themes.everforest.palette")
+local palette = require("jamruinedduel.themes.everforest.palette")
 
 local theme = {
   normal = {

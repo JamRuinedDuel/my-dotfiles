@@ -1,8 +1,7 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.indentscope",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.indentscope"),
 })
 
 local indentscope = require("mini.indentscope")
@@ -14,5 +13,3 @@ indentscope.setup({
   },
   symbol = "│",
 })
-
-_G.Keymaps.indentscope = function() end

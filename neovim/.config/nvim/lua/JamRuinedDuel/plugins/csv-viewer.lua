@@ -1,8 +1,7 @@
-vim.pack.add({
-  {
-    src = "https://github.com/hat0uma/csvview.nvim",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("hat0uma/csvview.nvim"),
 })
 
 local csvview = require("csvview")
@@ -16,5 +15,3 @@ csvview.setup({
     display_mode = "border",
   },
 })
-
-_G.Keymaps.csv_viewer = function() end

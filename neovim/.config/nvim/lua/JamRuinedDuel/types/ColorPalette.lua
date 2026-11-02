@@ -1,3 +1,5 @@
+---@meta
+
 ---@class (exact) ColorPalette
 ---@field none string
 ---@field black string

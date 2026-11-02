@@ -1,8 +1,7 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.animate",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.animate"),
 })
 
 local animate = require("mini.animate")
@@ -14,5 +13,3 @@ animate.setup({
   open = { enable = true },
   close = { enable = true },
 })
-
-_G.Keymaps.animation = function() end

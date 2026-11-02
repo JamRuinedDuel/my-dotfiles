@@ -1,5 +1,7 @@
-vim.pack.add({
-  { src = "https://github.com/sotte/presenting.nvim" },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("sotte/presenting.nvim"),
 })
 
 local presentation = require("presenting")
@@ -9,5 +11,3 @@ presentation.setup({
     width = 80,
   },
 })
-
-_G.Keymaps.slideshow = function() end

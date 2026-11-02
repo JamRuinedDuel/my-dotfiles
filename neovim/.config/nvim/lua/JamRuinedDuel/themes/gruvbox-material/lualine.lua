@@ -1,5 +1,5 @@
 ---@type ColorPalette
-local palette = require("JamRuinedDuel.themes.gruvbox-material.palette")
+local palette = require("jamruinedduel.themes.gruvbox-material.palette")
 
 ---@type LualineTheme
 local theme = {

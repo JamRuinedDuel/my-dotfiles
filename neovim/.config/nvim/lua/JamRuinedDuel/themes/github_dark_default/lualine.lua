@@ -1,5 +1,5 @@
 ---@type ColorPalette
-local palette = require("JamRuinedDuel.themes.github_dark_default.palette")
+local palette = require("jamruinedduel.themes.github_dark_default.palette")
 
 ---@type LualineTheme
 local theme = {

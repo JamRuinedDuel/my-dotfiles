@@ -1,13 +1,13 @@
-vim.pack.add({
-  {
-    src = "https://github.com/christoomey/vim-tmux-navigator",
-    version = "master",
-  },
+local pack = require("jamruinedduel.utils.pack")
+local km = require("jamruinedduel.keymaps.registry")
+
+pack.add({
+  pack.gh("christoomey/vim-tmux-navigator"),
 })
 
 vim.g.tmux_navigator_no_mappings = 1
 
-_G.Keymaps.vim_tmux_navigator = function()
+km.register("vim_tmux_navigator", function()
   vim.keymap.set("n", "<C-h>", vim.cmd.TmuxNavigateLeft, {
     desc = "Tmux navigate left",
     silent = true,
@@ -24,4 +24,4 @@ _G.Keymaps.vim_tmux_navigator = function()
     desc = "Tmux navigate right",
     silent = true,
   })
-end
+end)

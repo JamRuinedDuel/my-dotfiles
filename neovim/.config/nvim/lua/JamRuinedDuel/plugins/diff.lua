@@ -1,20 +1,18 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.diff",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+local km = require("jamruinedduel.keymaps.registry")
+
+pack.add({
+  pack.gh("nvim-mini/mini.diff"),
 })
 
 local diff = require("mini.diff")
 
 diff.setup()
 
-local toggle_diff_overlay = function()
-  diff.toggle_overlay(0)
-end
-
-_G.Keymaps.diff = function()
-  vim.keymap.set("n", "<leader>d", toggle_diff_overlay, {
+km.register("diff", function()
+  vim.keymap.set("n", "<leader>d", function()
+    diff.toggle_overlay(0)
+  end, {
     desc = "Toggle diff",
   })
-end
+end)

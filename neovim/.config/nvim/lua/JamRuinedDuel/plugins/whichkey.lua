@@ -1,8 +1,7 @@
-vim.pack.add({
-  {
-    src = "https://github.com/folke/which-key.nvim",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("folke/which-key.nvim"),
 })
 
 local wk = require("which-key")
@@ -16,10 +15,8 @@ wk.setup({
 
 wk.add({
   { "<leader><leader>", group = "Pickers" },
-  { "<leader>w", group = "Manage windows" },
-  { "<leader>b", group = "Manage buffers" },
-  { "<leader>p", group = "Manage packages" },
-  { "<leader>l", group = "Manage LSP packages" },
+  { "<leader>w",        group = "Manage windows" },
+  { "<leader>b",        group = "Manage buffers" },
+  { "<leader>p",        group = "Manage packages" },
+  { "<leader>l",        group = "Manage LSP packages" },
 })
-
-_G.Keymaps.whichkey = function() end

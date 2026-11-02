@@ -1,8 +1,9 @@
-vim.pack.add({
-  {
-    src = "https://github.com/willothy/nvim-cokeline",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+local color = require("jamruinedduel.utils.color")
+local km = require("jamruinedduel.keymaps.registry")
+
+pack.add({
+  pack.gh("willothy/nvim-cokeline"),
 })
 
 vim.opt.showtabline = 2
@@ -10,7 +11,7 @@ vim.opt.showtabline = 2
 local cokeline = require("cokeline")
 
 ---@type boolean,ColorPalette
-local _, palette = _G.Utils.Color.get_palette()
+local _, palette = color.get_palette()
 
 local set_tabline_highlights = function()
   vim.api.nvim_set_hl(0, "Tabline", { bg = palette.none })
@@ -140,4 +141,10 @@ cokeline.setup({
   },
 })
 
-_G.Keymaps.bufferline = function() end
+km.register("bufferline", function()
+  vim.keymap.set("n", "H", vim.cmd.bprevious, { desc = "Go to previous buffer" })
+  vim.keymap.set("n", "<leader>bh", vim.cmd.bprevious, { desc = "Go to previous buffer" })
+  vim.keymap.set("n", "L", vim.cmd.bnext, { desc = "Go to next buffer" })
+  vim.keymap.set("n", "<leader>bl", vim.cmd.bnext, { desc = "Go to next buffer" })
+  vim.keymap.set("n", "<leader>bd", vim.cmd.bdelete, { desc = "Close current buffer" })
+end)

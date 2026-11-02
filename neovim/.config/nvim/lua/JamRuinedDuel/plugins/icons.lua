@@ -1,8 +1,7 @@
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-mini/mini.icons",
-    version = "main",
-  },
+local pack = require("jamruinedduel.utils.pack")
+
+pack.add({
+  pack.gh("nvim-mini/mini.icons"),
 })
 
 local icons = require("mini.icons")
@@ -12,5 +11,3 @@ icons.setup({
 })
 
 icons.mock_nvim_web_devicons()
-
-_G.Keymaps.icons = function() end
