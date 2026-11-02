@@ -79,7 +79,7 @@ km.register("lspconfig", function()
   vim.keymap.set("n", "<leader>lu", vim.cmd.MasonUpdate, {
     desc = "Update Mason libraries",
   })
-  vim.keymap.set("n", "<leader>lc", vim.cmd.MasonToolClean, {
+  vim.keymap.set("n", "<leader>lc", vim.cmd.MasonToolsClean, {
     desc = "Clean Mason Tool",
   })
 end)
