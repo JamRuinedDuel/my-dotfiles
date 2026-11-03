@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "f91645b69f0e856a391ba4bb17fab029cfe1f6a7",
+      "rev": "06097529cf6d3618546436f9a6bd5beaed979aef",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -15,6 +15,10 @@
     "everforest": {
       "rev": "85a86eb62409e3ec88713bff3d1b9d7374e112e4",
       "src": "https://github.com/sainnhe/everforest"
+    },
+    "friendly-snippets": {
+      "rev": "b2ea5c41a150ba72fb656eedb4ed0a86d138d945",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "github-nvim-theme": {
       "rev": "c106c9472154d6b2c74b74565616b877ae8ed31d",
@@ -95,6 +99,10 @@
     "nvim-lspconfig": {
       "rev": "adfbb74472f6c231b651b650a89f414c2680fb31",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-notify": {
+      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+      "src": "https://github.com/rcarriga/nvim-notify"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

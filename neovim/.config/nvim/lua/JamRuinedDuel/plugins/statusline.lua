@@ -54,7 +54,7 @@ lualine.setup({
       },
       {
         "branch",
-        icon = "",
+        icon = "",
         color = { bg = palette.magenta },
         separator = { left = "", right = "" },
       },

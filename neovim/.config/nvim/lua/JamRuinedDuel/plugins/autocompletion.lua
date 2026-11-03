@@ -1,6 +1,7 @@
 local pack = require("jamruinedduel.utils.pack")
 
 pack.add({
+  pack.gh("rafamadriz/friendly-snippets"),
   pack.gh("saghen/blink.lib"),
   pack.gh("saghen/blink.cmp"), -- v2
 })

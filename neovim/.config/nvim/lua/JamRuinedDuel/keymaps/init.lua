@@ -14,7 +14,11 @@ local all_keymaps = km.all()
 for plugin_name, fn in pairs(all_keymaps) do
   local ok, err = pcall(fn)
   if not ok then
-    vim.notify(string.format("Failed to load keymaps for %s: %s", plugin_name, tostring(err)), vim.log.levels.ERROR)
+    vim.notify(
+      string.format("Failed to load keymaps for %s: %s", plugin_name, tostring(err)),
+      vim.log.levels.ERROR,
+      { title = "Keymaps" }
+    )
   end
 end
 

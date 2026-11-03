@@ -12,7 +12,7 @@ opt.smartindent = true
 opt.backspace = "indent,eol,start"
 opt.list = false
 opt.listchars = { space = "·" }
-opt.wrap = false
+opt.wrap = true
 opt.linebreak = false
 
 opt.ignorecase = true
@@ -34,5 +34,7 @@ opt.splitbelow = true
 opt.equalalways = true
 opt.scrolloff = 5
 opt.sidescrolloff = 10
+
+vim.o.winborder = "single"
 
 opt.undofile = true

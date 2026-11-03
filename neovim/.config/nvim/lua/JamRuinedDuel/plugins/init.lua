@@ -1,5 +1,6 @@
 require("jamruinedduel.plugins.icons")
 require("jamruinedduel.plugins.colorscheme")
+require("jamruinedduel.plugins.notification")
 
 require("jamruinedduel.plugins.around-inside-extension")
 require("jamruinedduel.plugins.surround")

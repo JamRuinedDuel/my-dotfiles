@@ -6,12 +6,16 @@
 
 local M = {}
 
+local NOTIF_TITLE = "Pack"
+
 --- Helper: safe call + user notification
 ---@return boolean, string|nil
-local function safe_call(fn, ...)
+local function safe_call(label, fn, ...)
   local ok, err = pcall(fn, ...)
   if not ok then
-    vim.notify(string.format("[Pack] %s failed: %s", fn, tostring(err)), vim.log.levels.ERROR)
+    vim.notify(string.format("%s failed: %s", label, tostring(err)), vim.log.levels.ERROR, {
+      title = NOTIF_TITLE,
+    })
   end
   return ok, err
 end
@@ -20,7 +24,7 @@ end
 ---@param spec string
 ---@return string
 function M.gh(spec)
-  return "https://github.com/" .. spec
+  return string.format("https://github.com/%s", spec)
 end
 
 --- Return the raw list of plugins as given by the manager.
@@ -36,7 +40,7 @@ function M.add(spec)
   if type(spec) ~= "table" then
     error("Pack.add: spec must be a table (or list of tables)")
   end
-  return safe_call(vim.pack.add, spec)
+  return safe_call("vim.pack.add", vim.pack.add, spec)
 end
 
 --- Update a single plugin (or if `name` is nil|empty).
@@ -46,7 +50,7 @@ function M.update(name)
   if name ~= nil and type(name) ~= "string" then
     error("Pack.update: name must be a string or nil")
   end
-  return safe_call(vim.pack.update, name)
+  return safe_call("vim.pack.update", vim.pack.update, name)
 end
 
 --- Update *all* plugins.
@@ -60,7 +64,7 @@ end
 ---@return boolean, string|nil
 function M.remove(name)
   assert(type(name) == "string", "Pack.remove: name must be a string")
-  return safe_call(vim.pack.del, name)
+  return safe_call("vim.pack.del", vim.pack.del, name)
 end
 
 --- Delete all inactive plugins.
@@ -75,7 +79,9 @@ function M.clean()
   end
 
   if #inactive == 0 then
-    vim.notify("[Pack] No inactive plugins to remove.", vim.log.levels.INFO)
+    vim.notify("No inactive plugins to remove.", vim.log.levels.INFO, {
+      title = NOTIF_TITLE,
+    })
     return true
   end
 
@@ -86,9 +92,13 @@ function M.clean()
   end)
 
   if ok then
-    vim.notify(string.format("[Pack] Removed %d inactive plugin(s).", #inactive), vim.log.levels.INFO)
+    vim.notify(string.format("Removed %d inactive plugin(s).", #inactive), vim.log.levels.INFO, {
+      title = NOTIF_TITLE,
+    })
   else
-    vim.notify("[Pack] Failed to clean inactive plugins: " .. tostring(err), vim.log.levels.ERROR)
+    vim.notify("Failed to clean inactive plugins: " .. tostring(err), vim.log.levels.ERROR, {
+      title = NOTIF_TITLE,
+    })
   end
   return ok
 end
